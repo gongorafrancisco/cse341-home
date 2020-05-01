@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>Assignments</title>
-         <?php include $_SERVER['DOCUMENT_ROOT'].'common/head.php';?>
+         <?php include $_SERVER['DOCUMENT_ROOT'].'../common/head.php';?>
     </head>
     <body class="text-center">
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
