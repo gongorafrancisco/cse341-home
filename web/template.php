@@ -8,7 +8,6 @@
     <body>
 
         <?php include $_SERVER['DOCUMENT_ROOT'].'common/header.php';?>
-        <?php include $_SERVER['DOCUMENT_ROOT'].'common/nav.php';?>
         <main>
             <h1>Content Title Here</h1>
             <hr>
