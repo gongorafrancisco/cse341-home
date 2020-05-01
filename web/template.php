@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-US">
     <head>
         <meta charset="utf-8">
-        <title>Home</title>
+        <title>CSE341 </title>
          <?php include $_SERVER['DOCUMENT_ROOT'].'common/head.php';?>
     </head>
     <body>
