@@ -9,7 +9,8 @@
 
         <?php include $_SERVER['DOCUMENT_ROOT'].'/common/header.php';?>
         <main role="main" class="flex-shrink-0">
-            <h1 class="display-1">Coming Soon</h1>
+            <h1 class="invisible"></h1>
+            <h1 class="display-1 text-center">Coming Soon</h1>
         </main>
         <?php include $_SERVER['DOCUMENT_ROOT'].'/common/footer.php';?>
         <script src="js/jquery-3.5.0.min.js"></script>
