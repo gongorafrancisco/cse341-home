@@ -17,6 +17,7 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
+      <img src="img/iphone-se-5050777_1280.png">
       <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
       <div class="container">
         <div class="carousel-caption text-left">
@@ -27,6 +28,7 @@
       </div>
     </div>
     <div class="carousel-item">
+    <img src="img/1280px-IPhone_SE_2.png">
       <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
       <div class="container">
         <div class="carousel-caption">
