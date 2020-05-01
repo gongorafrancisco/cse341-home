@@ -5,10 +5,10 @@
         <title>Assingments</title>
          <?php include $_SERVER['DOCUMENT_ROOT'].'/common/head.php';?>
     </head>
-    <body>
+    <body class="d-flex flex-column h-100">
 
         <?php include $_SERVER['DOCUMENT_ROOT'].'/common/header.php';?>
-        <main role="main" class=".container-fluid">
+        <main role="main" class="flex-shrink-0">
             <h1 class="display-1">Coming Soon</h1>
         </main>
         <?php include $_SERVER['DOCUMENT_ROOT'].'/common/footer.php';?>
