@@ -31,7 +31,7 @@
     <img src="img/iphone-se-5050777_1280.png">
       <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
       <div class="container">
-        <div class="carousel-caption">
+        <div class="carousel-caption text-primary">
           <h1>Tech Specs</h1>
           <p>Better display. Faster chip. Enhanced camera. Water resistant. Want more?</p>
           <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
@@ -60,7 +60,7 @@
       <p class="lead">With the new (as for 2020) A13 Bionic chip you can now run any app or game smoothly and with greater efficiency.</p>
     </div>
     <div class="col-md-5">
-      <img src="img/Apple_A13_Bionic.jpg" class=".img-fluid">
+      <img src="img/431px-Apple_A13_Bionic.jpg" class="featurette-image img-fluid mx-auto">
     </div>
   </div>
 
