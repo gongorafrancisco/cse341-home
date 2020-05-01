@@ -8,7 +8,7 @@
     <body>
 
         <?php include $_SERVER['DOCUMENT_ROOT'].'/common/header.php';?>
-        <main>
+        <main role="main" class=".container-fluid">
             <h1 class="display-1">Coming Soon</h1>
         </main>
         <?php include $_SERVER['DOCUMENT_ROOT'].'/common/footer.php';?>
