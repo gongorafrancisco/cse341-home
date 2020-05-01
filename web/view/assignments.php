@@ -5,10 +5,11 @@
         <title>Assignments</title>
          <?php include $_SERVER['DOCUMENT_ROOT'].'/common/head.php';?>
     </head>
-    <body class="text-center">
+    <body class="body text-center">
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
   <header class="masthead mb-auto">
     <div class="inner">
+    <h3 class="masthead-brand">Assingments Page</h3>
       <nav class="nav nav-masthead justify-content-center">
         <a class="nav-link active" href="../">Home</a>
       </nav>
