@@ -18,7 +18,6 @@ body {
   /* Carousel base class */
   .carousel {
     margin-bottom: 4rem;
-    background-color: #000000;
   }
 
   /* Since positioning the image, we need to help out the caption */
@@ -38,7 +37,9 @@ body {
     min-width: 100%;
     height: 32rem;
   }
-  
+  .carousel-inner {
+      background: #000000;
+  }
   
   /* MARKETING CONTENT
   -------------------------------------------------- */
