@@ -17,10 +17,10 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-    <img src="img/iphone-se-5050777_1280.png" class="float-right" alt="iPhone SE thumbnail">
+    <img src="img/iphone-se-5050777_1280.png" alt="iPhone SE thumbnail">
       <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
       <div class="container">
-        <div class="carousel-caption text-left">
+        <div class="carousel-caption text-left text-secondary">
           <h1>Why Upgrade</h1>
           <p>Better perfomance for games and work. Use those two sim cards finally.<br>
            Get more battery life and faster WiFi speeds.</p>
@@ -31,7 +31,7 @@
     <div class="carousel-item">
       <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
       <div class="container">
-        <div class="carousel-caption text-primary">
+        <div class="carousel-caption">
           <h1>Tech Specs</h1>
           <p>Better display. Faster chip. Enhanced camera. Water resistant. Want more?</p>
           <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
