@@ -8,7 +8,7 @@
     <body>
 
         <?php include $_SERVER['DOCUMENT_ROOT'].'/common/header.php';?>
-        <main role="main" class=".container-fluid">
+        <main role="main" class="flex-shrink-0">
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
