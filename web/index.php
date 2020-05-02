@@ -67,8 +67,6 @@
   <hr class="featurette-divider">
   <!-- /END THE FEATURETTES -->
 
-</div><!-- /.container -->
-
         <?php include $_SERVER['DOCUMENT_ROOT'].'/common/footer.php';?>
         </main>
         <script src="js/jquery-3.5.0.min.js"></script>
