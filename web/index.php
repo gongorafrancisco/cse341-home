@@ -5,10 +5,10 @@
         <title>Home</title>
         <?php include $_SERVER['DOCUMENT_ROOT'].'/common/head.php';?>
     </head>
-    <body>
+    <body class="d-flex flex-column h-100">
 
         <?php include $_SERVER['DOCUMENT_ROOT'].'/common/header.php';?>
-        <main role="main" class="flex-shrink-0">
+        <main role="main" class="container-fluid">
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
