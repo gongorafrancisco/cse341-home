@@ -9,7 +9,7 @@
 
         <?php include $_SERVER['DOCUMENT_ROOT'].'/common/header.php';?>
         <main role="main" class="flex-shrink-0">
-            <h1 class="invisible"></h1>
+            <h1 class="invisible">1</h1>
             <h1 class="display-1 text-center">Coming Soon</h1>
         </main>
         <?php include $_SERVER['DOCUMENT_ROOT'].'/common/footer.php';?>
