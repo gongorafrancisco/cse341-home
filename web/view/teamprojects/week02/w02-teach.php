@@ -53,5 +53,6 @@
   </div>
 </main> 
 <?php include $_SERVER['DOCUMENT_ROOT'].'/common/footer-tp.php';?>
+<script src="../../../js/scripts-w02.js"></script>
 </body>
 </html>
