@@ -10,7 +10,7 @@
           <a class="nav-link" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../view/assignments.php">Assignments</a>
+          <a class="nav-link" href="../../assignments.php">Assignments</a>
         </li>
       </ul>
     </div>

@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <title>Week 02 Teach Team Activity</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="W2 Teach Team Activity by Francisco Gongora"/>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <?php include $_SERVER['DOCUMENT_ROOT'].'/common/head-tp.php';?>
   </head>
-  <body>
- <main class="container-fluid">
-   <h1 class="display-4">
+  <body class="d-flex flex-column h-100">
+  <?php include $_SERVER['DOCUMENT_ROOT'].'/common/header-tp.php';?>
+  <h2 class="invisible">1</h2>
+  <main class="container-fluid">
+   <h1 class="h1 text-center">
      02 Teach : Team Activity
     <small class="text-muted">by Francisco Gongora</small>
    </h1>
@@ -52,7 +52,6 @@
   <div class="col"></div>
   </div>
 </main> 
-<script src="../../../js/jquery-3.5.0.min.js"></script>
-<script src="../../../js/scripts-w02.js"></script>
+<?php include $_SERVER['DOCUMENT_ROOT'].'/common/footer-tp.php';?>
 </body>
 </html>

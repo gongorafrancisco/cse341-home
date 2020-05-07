@@ -12,7 +12,7 @@
             <h1 class="display-3 text-center">Assingments</h1>
             <h2 class="invisible">1</h2>
             <div class="list-group container-md">
-                <a href="teamprojects/week02/w02-teach.html" class="list-group-item list-group-item-action">
+                <a href="teamprojects/week02/w02-teach.php" class="list-group-item list-group-item-action">
                     W02 Team Activity : Javascript manipulation 
                 </a>
                 <a href="teamprojects/week03/form.php" class="list-group-item list-group-item-action">

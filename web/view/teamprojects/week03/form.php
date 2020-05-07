@@ -9,12 +9,14 @@
     <head>
         <meta charset="utf-8">
         <title>Form Demo</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="Teach Activity Week03 by Francisco"/>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <?php include $_SERVER['DOCUMENT_ROOT'].'/common/head-tp.php';?>
     </head>
-    <body class="container-fluid">
+    <body class="d-flex flex-column h-100">
+
+        <?php include $_SERVER['DOCUMENT_ROOT'].'/common/header-tp.php';?>
+       
         <h6 class="invisible">1</h6>
+       
         <main class="container-md">    
         <h1 class="display-4 text-center">Form Handling Demo</h1>
         <h6 class="invisible">1</h6>
@@ -146,7 +148,8 @@
                   Antartica
                 </label>
               </div>
-              <small id="placeslHelp" class="form-text text-muted">Check all the places you have been        </div>
+              <small id="placeslHelp" class="form-text text-muted">Check all the places you have been</small>       
+              </div>
           </div>
         <div class="form-group row">
             <div class="col-sm-10">
@@ -161,5 +164,6 @@
           <!-- Form ENDS -->
 
         </main>
+        <?php include $_SERVER['DOCUMENT_ROOT'].'/common/footer-tp.php';?>
     </body>
 </html>
