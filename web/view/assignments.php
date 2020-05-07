@@ -6,11 +6,19 @@
          <?php include $_SERVER['DOCUMENT_ROOT'].'/common/head.php';?>
     </head>
     <body class="d-flex flex-column h-100">
-
         <?php include $_SERVER['DOCUMENT_ROOT'].'/common/header.php';?>
         <main role="main" class="flex-shrink-0">
-            <h1 class="invisible">1</h1>
-            <h1 class="display-1 text-center">Coming Soon</h1>
+            <h2 class="invisible">1</h2>
+            <h1 class="display-3 text-center">Assingments</h1>
+            <h2 class="invisible">1</h2>
+            <div class="list-group container-md">
+                <a href="teamprojects/week02/w02-teach.html" class="list-group-item list-group-item-action">
+                    W02 Team Activity : Javascript manipulation 
+                </a>
+                <a href="teamprojects/week03/form.php" class="list-group-item list-group-item-action">
+                    W03 Team Activity : Form Handling
+                </a>
+            </div>
         </main>
         <?php include $_SERVER['DOCUMENT_ROOT'].'/common/footer.php';?>
         <script src="js/jquery-3.5.0.min.js"></script>
