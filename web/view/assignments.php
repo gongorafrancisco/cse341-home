@@ -18,6 +18,9 @@
                 <a href="teamprojects/week03/form.php" class="list-group-item list-group-item-action">
                     W03 Team Activity : Form Handling
                 </a>
+                <a href="storedemo.php" class="list-group-item list-group-item-action">
+                    W03 Prove Activity : Assignment - PHP Shopping Cart
+                </a>
             </div>
         </main>
         <?php include $_SERVER['DOCUMENT_ROOT'].'/common/footer.php';?>

@@ -24,7 +24,7 @@
           <h1>Why Upgrade</h1>
           <p>Better perfomance for games and work. Use those two sim cards finally.<br>
            Get more battery life and faster WiFi speeds.</p>
-          <p><a class="btn btn-lg btn-primary" href="#" role="button">Buy now</a></p>
+          <p><a class="btn btn-lg btn-primary" href="/view/storedemo.php" role="button">Buy now</a></p>
         </div>
       </div>
     </div>
