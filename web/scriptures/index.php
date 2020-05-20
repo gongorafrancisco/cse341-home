@@ -3,12 +3,34 @@
 ** Scriptures Controller
 */
 
-// Get the database connection file
-require_once '../library/connections.php';
+try
+{
+  $dbUrl = getenv('DATABASE_URL');
 
-// Get the scriptures model for use as needed
-require_once '../model/scriptures-model.php';
+  $dbOpts = parse_url($dbUrl);
 
+  $dbHost = $dbOpts["host"];
+  $dbPort = $dbOpts["port"];
+  $dbUser = $dbOpts["user"];
+  $dbPassword = $dbOpts["pass"];
+  $dbName = ltrim($dbOpts["path"],'/');
+
+  $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+
+  $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+}
+catch (PDOException $ex)
+{
+  echo 'Error!: ' . $ex->getMessage();
+  die();
+}
+// Make a simple query
+
+$sql = 'SELECT scripture_book, scripture_chapter, scripture_verse, scripture_content FROM scriptures';
+$stmt = $db->prepare($sql);
+$stmt->execute();
+$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+return $rows;
 
 $action = filter_input(INPUT_POST, 'action');
 if ($action == NULL){
@@ -17,7 +39,7 @@ if ($action == NULL){
 
 switch ($action){
 default:
-$scriptures = getScriptures();
+$scriptures = $rows;
 if(count($scriptures) > 0){
  $scripturesList = '<ul>';
  foreach ($scriptures as $scripture) {
