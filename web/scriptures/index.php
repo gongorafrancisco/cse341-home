@@ -42,7 +42,7 @@ $scriptures = $rows;
 if(count($scriptures) > 0){
  $scripturesList = '<ul>';
  foreach ($scriptures as $scripture) {
-  $scripturesList .= "<li><$scripture[scripture_content]</li>";
+  $scripturesList .= "<li>$scripture[scripture_content]</li>";
  }
   $scripturesList .= '</ul>';
  } else {
