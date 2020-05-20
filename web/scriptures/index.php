@@ -17,11 +17,11 @@ switch ($action){
 default:
 $scriptures = getScriptures();
 if(count($scriptures) > 0){
- $scripturesList = '<ul>';
+ $scripturesList = "<ul class='list-group'>";
  foreach ($scriptures as $scripture) {
-  $scripturesList .= "<li>$scripture[scripture_content]</li>";
+  $scripturesList .= "<li class='list-group-item'><span class='font-weight-bold'>".$scripture['scripture_book']." ".$scripture['scripture_chapter'].":".$scripture['scripture_verse']."-"."</span>".$scripture['scripture_content']."</li>";
  }
-  $scripturesList .= '</ul>';
+  $scripturesList .= "</ul>";
  } else {
   $message = '<p class="notify">Sorry, no scriptures were returned.</p>';
 }
