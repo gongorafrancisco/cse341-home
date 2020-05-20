@@ -21,6 +21,9 @@
                 <a href="storedemo.php" class="list-group-item list-group-item-action">
                     W03 Prove Activity : Assignment - PHP Shopping Cart
                 </a>
+                <a href="/scriptures/" class="list-group-item list-group-item-action">
+                    W05 Team Activity : Assignment - Scripture Resources
+                </a>
             </div>
         </main>
         <?php include $_SERVER['DOCUMENT_ROOT'].'/common/footer.php';?>
