@@ -2,8 +2,8 @@
 /*
 ** Scriptures Controller
 */
-
-try
+function herokuConnect(){
+  try
 {
   $dbUrl = getenv('DATABASE_URL');
 
@@ -18,18 +18,22 @@ try
   $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
 
   $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  return $db;
 }
 catch (PDOException $ex)
 {
   echo 'Error!: ' . $ex->getMessage();
   die();
 }
+}
 // Make a simple query
-
-$sql = 'SELECT scripture_book, scripture_chapter, scripture_verse, scripture_content FROM scriptures';
-$stmt = $db->prepare($sql);
-$stmt->execute();
-$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+function getScriptures(){
+  $db = herokuConnect();
+  $sql = 'SELECT scripture_book, scripture_chapter, scripture_verse, scripture_content FROM scriptures';
+  $stmt = $db->prepare($sql);
+  $stmt->execute();
+  $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 
 $action = filter_input(INPUT_POST, 'action');
 if ($action == NULL){
@@ -38,7 +42,7 @@ if ($action == NULL){
 
 switch ($action){
 default:
-$scriptures = $rows;
+$scriptures = getScriptures();
 if(count($scriptures) > 0){
  $scripturesList = '<ul>';
  foreach ($scriptures as $scripture) {
