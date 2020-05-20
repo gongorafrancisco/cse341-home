@@ -1,6 +1,5 @@
 <?php
 // Connect to Heroku Databse
-function herokuConnect(){
   try
 {
   $dbUrl = getenv('DATABASE_URL');
@@ -16,17 +15,15 @@ function herokuConnect(){
   $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
 
   $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  return $db;
 }
 catch (PDOException $ex)
 {
   echo 'Error!: ' . $ex->getMessage();
   die();
 }
-}
+
 // Make a simple query
 function getScriptures(){
-  $db = herokuConnect();
   $sql = 'SELECT scripture_book, scripture_chapter, scripture_verse, scripture_content FROM scriptures';
   $stmt = $db->prepare($sql);
   $stmt->execute();
