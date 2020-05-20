@@ -11,7 +11,7 @@ if ($action == NULL){
 
 switch ($action){
 default:
-$scriptures = $rows;
+$scriptures = getScriptures();
 if(count($scriptures) > 0){
  $scripturesList = '<ul>';
  foreach ($scriptures as $scripture) {
