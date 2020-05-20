@@ -2,6 +2,10 @@
 /*
 ** Scriptures Controller
 */
+//Get the herokuConnect function out of the connections.php file
+require_once '../library/connections.php';
+
+//Get the queries from the scriptures-model.php file
 require_once '../model/scriptures-model.php';
 
 $action = filter_input(INPUT_POST, 'action');
