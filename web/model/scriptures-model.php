@@ -31,6 +31,7 @@ function getScriptures(){
   $stmt = $db->prepare($sql);
   $stmt->execute();
   $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  return $rows;
 }
 
 
