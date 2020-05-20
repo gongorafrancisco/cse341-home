@@ -30,7 +30,6 @@ $sql = 'SELECT scripture_book, scripture_chapter, scripture_verse, scripture_con
 $stmt = $db->prepare($sql);
 $stmt->execute();
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-return $rows;
 
 $action = filter_input(INPUT_POST, 'action');
 if ($action == NULL){
