@@ -1,29 +1,3 @@
-<?php
-session_start();
-$action = filter_input(INPUT_POST, 'action');
- if ($action == NULL){
-  $action = filter_input(INPUT_GET, 'action');
- }
- switch($action){
-   case 'checkout':
-    $_SESSION['quantity']=[];
-    if(isset($_POST['quantity-0'])){
-      $quantity0 = filter_input(INPUT_POST, 'quantity-0', FILTER_SANITIZE_NUMBER_INT);
-      $_SESSION['quantity'][0] = $quantity0;
-    }
-    if(isset($_POST['quantity-1'])){
-      $quantity1 = filter_input(INPUT_POST, 'quantity-1', FILTER_SANITIZE_NUMBER_INT);
-      $_SESSION['quantity'][1] = $quantity1;
-    }
-    if(isset($_POST['quantity-2'])){
-      $quantity2 = filter_input(INPUT_POST, 'quantity-2', FILTER_SANITIZE_NUMBER_INT);
-      $_SESSION['quantity'][2] = $quantity2;
-    }
-   break;
-  default:
-  break;
- }
-?>
 <!doctype html>
 <html lang="en-US">
     <head>
@@ -46,7 +20,7 @@ $action = filter_input(INPUT_POST, 'action');
               <h2 class="invisible">1</h2>
     <div class="container-md">
       <h4 class="mb-3">Shipping address</h4>
-      <form class="needs-validation" action="confirmationdemo.php" method="post">
+      <form class="needs-validation" action="../proveprojects/index.php" method="post">
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="firstName">First name</label>

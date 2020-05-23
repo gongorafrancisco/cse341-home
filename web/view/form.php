@@ -1,9 +1,3 @@
-<?php
-    $majors = array("cs"=>"Computer Science",
-                    "wdd"=>"Web Design and Development",
-                    "cit"=>"Computer information Technology",
-                    "ce"=>"Computer Engineering");
-    ?>
 <!DOCTYPE html>
 <html lang="en-us">
     <head>
@@ -23,7 +17,7 @@
 
           <!-- Form STARTS -->
 
-        <form class="container-fluid" action="formhandler.php" method="post">
+        <form class="container-fluid" action="../teamprojects/index.php" method="post">
 
           <!-- Name section STARTS -->
             <div class="form-group row">
@@ -154,7 +148,7 @@
         <div class="form-group row">
             <div class="col-sm-10">
               <button type="submit" class="btn btn-primary">Submit</button>
-
+                <input type="hidden" name="action" value="formPost">
             </div>
           </div>
 

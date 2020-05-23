@@ -12,16 +12,16 @@
             <h1 class="display-3 text-center">Assingments</h1>
             <h2 class="invisible">1</h2>
             <div class="list-group container-md">
-                <a href="teamprojects/week02/w02-teach.php" class="list-group-item list-group-item-action">
+                <a href="../teamprojects/index.php?action=week02" class="list-group-item list-group-item-action">
                     W02 Team Activity : Javascript manipulation 
                 </a>
-                <a href="teamprojects/week03/form.php" class="list-group-item list-group-item-action">
+                <a href="../teamprojects/index.php?action=week03" class="list-group-item list-group-item-action">
                     W03 Team Activity : Form Handling
                 </a>
-                <a href="storedemo.php" class="list-group-item list-group-item-action">
+                <a href="../proveprojects/index?action=store" class="list-group-item list-group-item-action">
                     W03 Prove Activity : Assignment - PHP Shopping Cart
                 </a>
-                <a href="/scriptures/" class="list-group-item list-group-item-action">
+                <a href="../teamprojects/index?action=week05" class="list-group-item list-group-item-action">
                     W05 Team Activity : Assignment - Scripture Resources
                 </a>
             </div>

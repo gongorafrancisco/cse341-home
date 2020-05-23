@@ -1,25 +1,3 @@
-<?php
-session_start();
-if(!isset($_SESSION['product'])){
-  $_SESSION['product']=[];
-}
-$action = filter_input(INPUT_POST, 'action');
- if ($action == NULL){
-  $action = filter_input(INPUT_GET, 'action');
- }
-switch ($action){
-  case 'se':
-    $_SESSION['product'][0] = 'iPhone SE';
-  break;
-  case 'tw':
-    $_SESSION['product'][1] = 'iPhone 12';
-  break;
-  case 'twp':
-    $_SESSION['product'][2] = 'iPhone 12 Pro';
-  default:
-  break;
-}
-?>
 <!doctype html>
 <html lang="en-US">
     <head>
@@ -32,7 +10,7 @@ switch ($action){
         <main role="main" class="flex-shrink-0">
         <h2 class="invisible">1</h2>
             <div class="container-fluid text-right">
-                <a href="cartdemo.php">
+                <a href="../proveprojects/index.php?action=cart">
                 View cart
                 <svg class="bi bi-bag" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M14 5H2v9a1 1 0 001 1h10a1 1 0 001-1V5zM1 4v10a2 2 0 002 2h10a2 2 0 002-2V4H1z" clip-rule="evenodd"/>
@@ -56,7 +34,7 @@ switch ($action){
           <li>A13 Bionic chip</li>
           <li>2 SIM Card support</li>
         </ul>
-        <a class="btn btn-primary" href="storedemo.php?action=se">Add to cart</a>
+        <a class="btn btn-primary" href="../proveprojects/index.php?action=se">Add to cart</a>
       </div>
     </div>
     <div class="card mb-4 shadow-sm">
@@ -72,7 +50,7 @@ switch ($action){
           <li>2 camera system</li>
           <li>5G Support</li>
         </ul>
-        <a class="btn btn-primary" href="storedemo.php?action=tw">Add to cart</a>
+        <a class="btn btn-primary" href="../proveprojects/index.php?action=tw">Add to cart</a>
       </div>
     </div>
     <div class="card mb-4 shadow-sm">
@@ -88,7 +66,7 @@ switch ($action){
           <li>3 camera system + LiDIAR</li>
           <li>5G Support</li>
         </ul>
-        <a class="btn btn-primary" href="storedemo.php?action=twp">Add to cart</a>
+        <a class="btn btn-primary" href="../proveprojects/index.php?action=twp">Add to cart</a>
       </div>
     </div>
   </div>
