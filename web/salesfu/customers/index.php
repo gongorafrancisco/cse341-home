@@ -13,8 +13,8 @@ if ($action == NULL) {
 }
 
 switch ($action) {
-    case 'allCustomers':
-        $customers = getCustomers();
+    default:
+    $customers = getCustomers();
         if (count($customers) > 0) {
             $customersList = "<ul class='list-group'>";
             foreach ($customers as $customer) {
@@ -24,10 +24,6 @@ switch ($action) {
         } else {
             $message = '<p class="bg-danger">Sorry, no customers were found.</p>';
         }
-        include '../view/scriptures-resources.php';
-        break;
-
-    default:
-    include '../view/sf-dashboard.php';
+        include '../../view/sf-customers.php';
         break;
 }

@@ -30,7 +30,7 @@
                         Customers
                     </button>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="../salesfu/customers/index.php?action=allCustomers">View All</a>
+                        <a class="dropdown-item" href="../salesfu/customers">View All</a>
                         <a class="dropdown-item" href="#">Add Customer</a>
                         <a class="dropdown-item" href="#">View Contacts</a>
                         <a class="dropdown-item" href="#">Add Contact</a>
