@@ -7,8 +7,7 @@
     </head>
     <body class="d-flex flex-column h-100">
         <?php include $_SERVER['DOCUMENT_ROOT'].'/common/header.php';?>
-        <main role="main" class="flex-shrink-0">
-        <h2 class="invisible">1</h2>
+        <main role="main" class="flex-shrink-0 my-5">
             <div class="container-fluid text-right">
                 <a href="../proveprojects/index.php?action=cart">
                 View cart

@@ -6,7 +6,7 @@
          <?php include $_SERVER['DOCUMENT_ROOT'].'/common/head.php';?>
     </head>
     <body class="d-flex flex-column h-100">
-        <main class="container-fluid">
+        <main class="container-fluid my-3">
         <h2 class="invisible">1</h2>
         <div>
             <a href="../proveprojects/index.php?action=backToStore">

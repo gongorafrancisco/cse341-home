@@ -3,12 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <title>Week 02 Teach Team Activity</title>
-    <?php include $_SERVER['DOCUMENT_ROOT'].'/common/head-tp.php';?>
+    <?php include $_SERVER['DOCUMENT_ROOT'].'/common/head.php';?>
   </head>
   <body class="d-flex flex-column h-100">
-  <?php include $_SERVER['DOCUMENT_ROOT'].'/common/header-tp.php';?>
-  <h2 class="invisible">1</h2>
-  <main class="container-fluid">
+  <?php include $_SERVER['DOCUMENT_ROOT'].'/common/header.php';?>
+  <main class="container-fluid my-5">
    <h1 class="h1 text-center">
      02 Teach : Team Activity
     <small class="text-muted">by Francisco Gongora</small>
@@ -52,7 +51,7 @@
   <div class="col"></div>
   </div>
 </main> 
-<?php include $_SERVER['DOCUMENT_ROOT'].'/common/footer-tp.php';?>
+<?php include $_SERVER['DOCUMENT_ROOT'].'/common/footer.php';?>
 <script src="../../../js/scripts-w02.js"></script>
 </body>
 </html>

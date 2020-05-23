@@ -3,10 +3,10 @@
     <head>
         <meta charset="utf-8">
         <title>Form Handler Demo</title>
-        <?php include $_SERVER['DOCUMENT_ROOT'].'/common/head-tp.php';?>
+        <?php include $_SERVER['DOCUMENT_ROOT'].'/common/head.php';?>
     </head>
     <body class="d-flex flex-column h-100">
-        <?php include $_SERVER['DOCUMENT_ROOT'].'/common/header-tp.php';?>
+        <?php include $_SERVER['DOCUMENT_ROOT'].'/common/header.php';?>
         <h6 class="invisible">1</h6>
         <main class="container-md">    
         <h1 class="display-4 text-center">Form Handling Demo</h1>
@@ -22,6 +22,6 @@
             </blockquote>
         </div>
         </main>
-        <?php include $_SERVER['DOCUMENT_ROOT'].'/common/footer-tp.php';?>
+        <?php include $_SERVER['DOCUMENT_ROOT'].'/common/footer.php';?>
     </body>
 </html>

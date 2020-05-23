@@ -24,6 +24,9 @@
                 <a href="../teamprojects/index.php?action=week05" class="list-group-item list-group-item-action">
                     W05 Team Activity : Assignment - Scripture Resources
                 </a>
+                <a href="../salesfu" class="list-group-item list-group-item-action">
+                    Personal Project : Sales FollowUP
+                </a>
             </div>
         </main>
         <?php include $_SERVER['DOCUMENT_ROOT'].'/common/footer.php';?>
