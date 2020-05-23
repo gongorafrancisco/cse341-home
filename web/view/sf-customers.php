@@ -8,16 +8,36 @@
 </head>
 
 <body id="dashboard-body h-100">
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-navt.php'; ?>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-navt.php'; ?>
     <div class="container-fluid h-100">
         <div class="row h-100">
-        <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-navl.php'; ?>
+            <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-navl.php'; ?>
             <div class="col bg-light h-100 py-4 px-3">
-            <?php
-                        if(isset($customersList)){
-                            echo $customersList;
-                        }
-                    ?>
+                <form>
+                    <div class="form-row align-items-center">
+                        <div class="col-auto">
+                            <select class="custom-select">
+                                <option selected>Filter by</option>
+                                <option value="1">Name</option>
+                                <option value="2">Tax ID</option>
+                            </select>
+                        </div>
+                        <div class="col-auto">
+                            <div class="input-group mb-2">
+                                <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Write something">
+                            </div>
+                        </div>
+
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-primary mb-2">Apply</button>
+                        </div>
+                    </div>
+                </form>
+                <?php
+                if (isset($customersList)) {
+                    echo $customersList;
+                }
+                ?>
 
             </div>
         </div>
