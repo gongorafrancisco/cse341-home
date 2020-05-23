@@ -74,7 +74,7 @@ switch ($action) {
             }
             $cartDetails .= "<div class='form-row'><input class='btn btn-primary' type='submit' value='Checkout'><input type='hidden' name='action' value='checkout'></div></form>";
         }
-        include '../view/cartdemo.php';
+        header("Location:/proveprojects/index.php?action=cart");
         break;
         case 'checkout':
             $_SESSION['quantity']=[];
@@ -92,6 +92,7 @@ switch ($action) {
             }
             include '../view/checkoutdemo.php';
            break;
+
            case 'complete':
             $firstName = filter_input(INPUT_POST, 'firstName', FILTER_SANITIZE_STRING);
             $lastName = filter_input(INPUT_POST, 'lastName', FILTER_SANITIZE_STRING);
