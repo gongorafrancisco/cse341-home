@@ -18,10 +18,10 @@
                 <a href="../teamprojects/index.php?action=week03" class="list-group-item list-group-item-action">
                     W03 Team Activity : Form Handling
                 </a>
-                <a href="../proveprojects/index?action=store" class="list-group-item list-group-item-action">
+                <a href="../proveprojects/index.php?action=store" class="list-group-item list-group-item-action">
                     W03 Prove Activity : Assignment - PHP Shopping Cart
                 </a>
-                <a href="../teamprojects/index?action=week05" class="list-group-item list-group-item-action">
+                <a href="../teamprojects/index.php?action=week05" class="list-group-item list-group-item-action">
                     W05 Team Activity : Assignment - Scripture Resources
                 </a>
             </div>
