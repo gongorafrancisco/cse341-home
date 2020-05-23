@@ -18,8 +18,8 @@
                         <div class="col-auto">
                             <select class="custom-select">
                                 <option selected>Filter by</option>
-                                <option name="customer_name">Name</option>
-                                <option name="customer_taxid">Tax ID</option>
+                                <option name="customer" value="customer_name">Name</option>
+                                <option name="taxid" value="customer_taxid">Tax ID</option>
                             </select>
                         </div>
                         <div class="col-auto">
