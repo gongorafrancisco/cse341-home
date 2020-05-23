@@ -13,13 +13,13 @@
         <div class="row h-100">
             <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-navl.php'; ?>
             <div class="col bg-light h-100 py-4 px-3">
-                <form>
+                <form class="needs-validation" action="../salesfu/customers/index.php" method="post">
                     <div class="form-row align-items-center">
                         <div class="col-auto">
                             <select class="custom-select">
                                 <option selected>Filter by</option>
-                                <option value="1">Name</option>
-                                <option value="2">Tax ID</option>
+                                <option name="customer_name">Name</option>
+                                <option name="customer_taxid">Tax ID</option>
                             </select>
                         </div>
                         <div class="col-auto">
