@@ -5,7 +5,7 @@
 require_once '../../library/connections.php';
 
 //Get the herokuConnect function out of the connections.php file
-require_once '../../library/sf-customers-model.php';
+require_once '../../model/sf-customers-model.php';
 
 $action = filter_input(INPUT_POST, 'action');
 if ($action == NULL) {
