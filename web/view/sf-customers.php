@@ -13,7 +13,7 @@
         <div class="row h-100">
             <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-navl.php'; ?>
             <div class="col bg-light h-100 py-4 px-3">
-                <form class="needs-validation" action="index.php" method="post">
+                <form class="needs-validation" action="../sf-customers/index.php" method="post">
                     <div class="form-row align-items-center">
                         <div class="col-auto">
                             <select class="custom-select">

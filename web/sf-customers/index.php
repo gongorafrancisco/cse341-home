@@ -2,10 +2,10 @@
 // Sales FU Customers Controller
 
 //Get the herokuConnect function out of the connections.php file
-require_once '../../library/connections.php';
+require_once '../library/connections.php';
 
 //Get the herokuConnect function out of the connections.php file
-require_once '../../model/sf-customers-model.php';
+require_once '../model/sf-customers-model.php';
 
 $action = filter_input(INPUT_POST, 'action');
 if ($action == NULL) {
@@ -27,7 +27,7 @@ switch ($action) {
             $message = '<p class="bg-danger">Sorry, no customers were found.</p>';
         } 
     // $customersFiltered = "Field 1: ".$customer.", Field 2: ".$filter_value;
-        include '../../view/sf-customers.php';
+        include '../view/sf-customers.php';
     break;
 
     default:
@@ -41,6 +41,6 @@ switch ($action) {
         } else {
             $message = '<p class="bg-danger">Sorry, no customers were found.</p>';
         }
-        include '../../view/sf-customers.php';
+        include '../view/sf-customers.php';
         break;
 }
