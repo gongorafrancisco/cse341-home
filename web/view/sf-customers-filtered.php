@@ -23,7 +23,7 @@
                         </div>
                         <div class="col-auto">
                             <div class="input-group mb-2">
-                                <input type="text" class="form-control" id="inlineFormInputGroup" name="filter_value" placeholder="Write something">
+                                <input type="text" class="form-control" id="inlineFormInputGroup" name="filter_value" placeholder="Write something" required>
                             </div>
                         </div>
 
