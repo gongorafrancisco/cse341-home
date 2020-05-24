@@ -15,7 +15,7 @@ if ($action == NULL) {
 switch ($action) {
     case 'filterCustomers':
         $userInput = htmlspecialchars($_POST["filter_value"]);
-        $filtervalue = "%micro%";
+        $filtervalue = "%m%";
         $customers = getCustomersByFilter($filtervalue);
         if (count($customers) > 0) {
             $customersFiltered = "<ul class='list-group'>";
