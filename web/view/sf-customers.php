@@ -13,26 +13,7 @@
         <div class="row h-100">
             <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-navl.php'; ?>
             <div class="col bg-light h-100 py-4 px-3">
-                <form class="needs-validation" action="../sf-customers/index.php" method="post">
-                    <div class="form-row align-items-center">
-                        <div class="col-auto">
-                            <select class="custom-select">
-                                <option selected>Filter by</option>
-                                <option name="customer" value="customer_name">Name</option>
-                            </select>
-                        </div>
-                        <div class="col-auto">
-                            <div class="input-group mb-2">
-                                <input type="text" class="form-control" id="inlineFormInputGroup" name="filter_value" placeholder="Write something">
-                            </div>
-                        </div>
-
-                        <div class="col-auto">
-                            <button type="submit" class="btn btn-primary mb-2">Apply</button>
-                            <input type="hidden" name="action" value="filterCustomers">
-                        </div>
-                    </div>
-                </form>
+            <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-customers-form.php'; ?>
                 <?php
                 if (isset($customersList)) {
                     echo $customersList;
