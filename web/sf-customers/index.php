@@ -26,7 +26,7 @@ switch ($action) {
         } else {
             $message = '<p class="bg-danger">Sorry, no customers were found.</p>';
         }  */
-    $customersFiltered = "Field 1: ".$filter_selection.", Field 2: ".$filter_value;
+    $customersFiltered = "Things will work out";
         include '../view/sf-customers.php';
     break;
 
