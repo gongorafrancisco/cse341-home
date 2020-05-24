@@ -14,7 +14,6 @@
             <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-navl.php'; ?>
             <div class="col bg-light h-100 py-4 px-3">
             <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-customers-form.php'; ?>
-                <p>This is where the message should go:</p>
                     <?php
                     if (isset($customersFiltered)) {
                         echo $customersFiltered;
