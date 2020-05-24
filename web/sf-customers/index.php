@@ -16,7 +16,7 @@ switch ($action) {
     case 'filterCustomers':
         $filter_selection = filter_input(INPUT_POST, 'customer', FILTER_SANITIZE_STRING);
         $filter_value = filter_input(INPUT_POST, 'filter_value', FILTER_SANITIZE_STRING);
-        $customers = getCustomersByFilter($filter_selection,$filter_value);
+/*         $customers = getCustomersByFilter($filter_selection,$filter_value);
         if (count($customers) > 0) {
             $customersFiltered = "<ul class='list-group'>";
             foreach ($customers as $customer) {
@@ -25,8 +25,8 @@ switch ($action) {
             $customersFiltered .= "</ul>";
         } else {
             $message = '<p class="bg-danger">Sorry, no customers were found.</p>';
-        } 
-    // $customersFiltered = "Field 1: ".$customer.", Field 2: ".$filter_value;
+        }  */
+    $customersFiltered = "Field 1: ".$filter_selection.", Field 2: ".$filter_value;
         include '../view/sf-customers.php';
     break;
 
