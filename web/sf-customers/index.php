@@ -24,7 +24,7 @@ switch ($action) {
             }
             $customersFiltered .= "</ul>";
         } else {
-            $message = '<p class="bg-danger">Sorry, no customers were found.</p>';
+            $message = '<p class="text-danger">Sorry, no customers were found.</p>';
         }
         include '../view/sf-customers-filtered.php';
         break;

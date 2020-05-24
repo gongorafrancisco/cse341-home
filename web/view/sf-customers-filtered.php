@@ -13,15 +13,15 @@
         <div class="row h-100">
             <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-navl.php'; ?>
             <div class="col bg-light h-100 py-4 px-3">
-            <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-customers-form.php'; ?>
-                    <?php
-                    if (isset($customersFiltered)) {
-                        echo $customersFiltered;
-                    }
-                    if (isset($message)){
-                        echo $message;
-                    }
-                    ?>
+
+                <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-customers-form.php';
+                if (isset($message)) {
+                    echo $message;
+                }
+                if (isset($customersFiltered)) {
+                    echo $customersFiltered;
+                }
+                ?>
             </div>
         </div>
     </div>
