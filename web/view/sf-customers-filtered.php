@@ -18,6 +18,9 @@
                     if (isset($customersFiltered)) {
                         echo $customersFiltered;
                     }
+                    if (isset($message)){
+                        echo $message;
+                    }
                     ?>
             </div>
         </div>
