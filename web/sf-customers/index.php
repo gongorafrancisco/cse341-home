@@ -15,7 +15,7 @@ if ($action == NULL) {
 switch ($action) {
     case 'filterCustomers':
         $filter_selection = 'customer_name';
-        $filter_value = filter_input(INPUT_POST, 'filter_value', FILTER_SANITIZE_STRING);
+        $filter_value = 'a';
         $customers = getCustomersByFilter($filter_selection, $filter_value);
         if (count($customers) > 0) {
             $customersFiltered = "<ul class='list-group'>";
