@@ -14,7 +14,7 @@ if ($action == NULL) {
 
 switch ($action) {
     case 'filterCustomers':
-        $userInput = htmlspecialchars($_POST["filter_value"]);
+        $userInput = filter_input(INPUT_POST, 'filter_value', FILTER_SANITIZE_STRING);
         $filtervalue = "%".$userInput."%";
         $customers = getCustomersByFilter($filtervalue);
         if (count($customers) > 0) {
