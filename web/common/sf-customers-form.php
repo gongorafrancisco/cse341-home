@@ -19,4 +19,4 @@
     </div>
 <div class="ml-1 mb-2"><a href="../sf-customers" class="btn btn-primary">Clear</a></div>
 </div>
-<small>This search box is case sentive, meaning that 'A' will not be treated as 'a' and viceversa.</small>
+<small class="text-muted mb-5">This search box is case sentive, meaning that 'A' will not be treated as 'a' and viceversa.</small>
