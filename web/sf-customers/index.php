@@ -16,7 +16,7 @@ switch ($action) {
     case 'filterCustomers':
         $filter_selection = 'customer_name';
         $filter_value = 'a';
-        $customers = getCustomersByFilter($filter_selection, $filter_value);
+        $customers = getCustomersByFilter();
         if (count($customers) > 0) {
             $customersFiltered = "<ul class='list-group'>";
             foreach ($customers as $customer) {
