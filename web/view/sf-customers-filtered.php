@@ -34,8 +34,8 @@
                     </div>
                 </form>
                 <?php
-                if (isset($customersList)) {
-                    echo $customersList;
+                if (isset($customersFiltered)) {
+                    echo $customersFiltered;
                 }
                 ?>
 

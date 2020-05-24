@@ -13,6 +13,22 @@ if ($action == NULL) {
 }
 
 switch ($action) {
+    case 'filterCustomers':
+        $filter_selection = filter_input(INPUT_POST, 'filter', FILTER_SANITIZE_STRING);
+        $filter_value = filter_input(INPUT_POST, 'filter_value', FILTER_SANITIZE_STRING);
+        $customers = getCustomersByFilter($filter_selection,$filter_value);
+        if (count($customers) > 0) {
+            $customersFiltered = "<ul class='list-group'>";
+            foreach ($customers as $customer) {
+                $customersFiltered .= "<li class='list-group-item'><span class='font-weight-bold'>" . $customer['customer_name'] . "</span></li>";
+            }
+            $customersFiltered .= "</ul>";
+        } else {
+            $message = '<p class="bg-danger">Sorry, no customers were found.</p>';
+        }
+        include '../../view/sf-customers.php';
+    break;
+
     default:
     $customers = getCustomers();
         if (count($customers) > 0) {
