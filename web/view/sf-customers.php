@@ -18,7 +18,7 @@
                         <div class="col-auto">
                             <select class="custom-select">
                                 <option selected>Filter by</option>
-                                <option name="filter" value="customer_name">Name</option>
+                                <option name="customer" value="customer_name">Name</option>
                             </select>
                         </div>
                         <div class="col-auto">
