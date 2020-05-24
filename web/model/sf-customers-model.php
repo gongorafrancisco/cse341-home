@@ -10,10 +10,11 @@ function getCustomers(){
   return $rows;
 }
 
-function getCustomersByFilter(){
+function getCustomersByFilter($filtervalue){
   $db = herokuConnect();
-  $sql = "SELECT customer_id, customer_name FROM customers WHERE customer_name LIKE '%a%'";
+  $sql = "SELECT customer_id, customer_name FROM customers WHERE customer_name LIKE '%:filtervalue%'";
   $stmt = $db->prepare($sql);
+  $stmt->bindValue(':filtervalue', $filtervalue, PDO::PARAM_STR);
   $stmt->execute();
   $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
   $stmt->closeCursor();
