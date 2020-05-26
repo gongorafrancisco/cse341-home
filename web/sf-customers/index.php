@@ -46,7 +46,7 @@ switch ($action) {
     break;
 
     case 'filterCustomers':
-        $userInput = filter_input(INPUT_POST, 'filter_value', FILTER_SANITIZE_STRING);
+        $userInput = filter_input(INPUT_GET, 'filter_value', FILTER_SANITIZE_STRING);
         $filtervalue = "%" . $userInput . "%";
         $customers = getCustomersByFilter($filtervalue);
         if (count($customers) > 0) {
