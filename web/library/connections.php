@@ -1,24 +1,38 @@
 <?php
 //Access the Heroku Database and enclosing into a function
-function herokuConnect()
-{
-  $db = NULL;
-  try {
-    $dbUrl = 'postgres://fixtsckmcihgws:e74a380b7061d9729e140a5fa67a5ac26c9f6a2c82f6b0df5ec34460de566ef4@ec2-54-175-117-212.compute-1.amazonaws.com:5432/d1ue3boa7vgphf';              
-    $dbOpts = parse_url($dbUrl);
+function herokuConnect() {
+    $db = NULL;
 
-    $dbHost = $dbOpts["host"];
-    $dbPort = $dbOpts["port"];
-    $dbUser = $dbOpts["user"];
-    $dbPassword = $dbOpts["pass"];
-    $dbName = ltrim($dbOpts["path"], '/');
-
-    $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword,);
-
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  } catch (PDOException $ex) {
-    echo 'Error!: ' . $ex->getMessage();
-    die();
-  }
-  return $db;
+    try {
+      // default Heroku Postgres configuration URL
+      $dbUrl = getenv('DATABASE_URL');
+  
+      if (!isset($dbUrl) || empty($dbUrl)) {
+        // and a database called "cse341"
+        $dbUrl = "postgres://cseuser:Spring2020@localhost:5432/cse341";
+      }
+  
+      // Get the various parts of the DB Connection from the URL
+      $dbopts = parse_url($dbUrl);
+  
+      $dbHost = $dbopts["host"];
+      $dbPort = $dbopts["port"];
+      $dbUser = $dbopts["user"];
+      $dbPassword = $dbopts["pass"];
+      $dbName = ltrim($dbopts["path"],'/');
+  
+      // Create the PDO connection
+      $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+  
+      // this line makes PDO give us an exception when there are problems, and can be very helpful in debugging!
+      $db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+    }
+    catch (PDOException $ex) {
+      // If this were in production, you would not want to echo
+      // the details of the exception.
+      echo "Error connecting to DB. Details: $ex";
+      die();
+    }
+  
+    return $db;
 }

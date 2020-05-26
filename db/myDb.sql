@@ -1,4 +1,6 @@
--- Creates a new table and define a primary key
+-- local database-name = cse341
+-- local user = cseuser
+-- local password = Spring2020
 CREATE TABLE team_users (
     member_id  INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     member_username    VARCHAR(15) NOT NULL,
@@ -131,5 +133,4 @@ CREATE TABLE financial_operations(
     payment_date3   DATE DEFAULT NULL,
     payment_amount3 NUMERIC DEFAULT NULL
 );
-
 

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Customers | Sales Follow UP</title>
+    <title>Customers Details | Sales Follow UP</title>
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/head.php'; ?>
 </head>
 
@@ -13,9 +13,8 @@
         <div class="row h-100">
         <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-navl.php'; ?>
             <div class="col h-100 py-4 px-3">
-                <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-customers-form.php'; ?>
                     <div class="h-100 my-4 overflow-auto">
-                        <?php if (isset($customersList)){echo $customersList;}?>
+                        <?php if (isset($customerDetails)){echo $customerDetails;}?>
                     </div>
             </div>
         </div>

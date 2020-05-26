@@ -1,4 +1,4 @@
-            <div class="col-2 p-1 h-100 py-4 px-3">
+            <div class="bg-light col-2 h-100 py-4 px-3">
                 <div class="btn-group dropright">
                     <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Customers
