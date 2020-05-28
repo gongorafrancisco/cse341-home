@@ -11,7 +11,7 @@
 
   <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/header.php'; ?>
   <main class="container-md">
-  <h1 class="display-4 text-center my-5">Form Handling Demo</h1>
+    <h1 class="display-4 text-center my-5">Form Handling Demo</h1>
     <!-- Form STARTS -->
 
     <form class="container-fluid" action="../teamprojects/index.php" method="post">

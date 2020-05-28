@@ -7,15 +7,57 @@ require_once '../library/connections.php';
 //Get the queries from the scriptures-model.php file
 require_once '../model/scriptures-model.php';
 
+//Get the functions.php file
+require_once '../library/functions.php';
+
 $action = filter_input(INPUT_POST, 'action');
 if ($action == NULL) {
     $action = filter_input(INPUT_GET, 'action');
 }
 
 switch ($action){
+    case 'insertScripture':
+        $scripture_book = filter_input(INPUT_POST, 'book', FILTER_SANITIZE_STRING);
+        $scripture_chapter = filter_input(INPUT_POST, 'chapter', FILTER_SANITIZE_NUMBER_INT);
+        $scripture_verse = filter_input(INPUT_POST, 'verse', FILTER_SANITIZE_NUMBER_INT);
+        $scripture_content = filter_input(INPUT_POST, 'content', FILTER_SANITIZE_STRING);
+        
+        // Check for missing data
+        if(empty($scripture_book) || empty($scripture_chapter) || empty($scripture_verse) || empty($scripture_content)){
+        $message = '<p class="text-danger">All fields need to be fulfilled.</p>';
+        $topics = getTopics();
+        $topicsList = topicBuilder($topics);
+        include '../view/add-scripture.php';
+        exit; 
+        }
+        
+        // Send the data to the model
+        $rowOutcome = addScripture($scripture_book, $scripture_chapter, $scripture_verse, $scripture_content);
+
+        // Check if the topics checkboxes are empty
+        if(empty($_POST['scriptureTopic'])){
+            header("Location:/teamprojects/index.php?action=week05");
+            exit;
+        } else {
+            $scripture_topics = filter_input(INPUT_POST, 'scriptureTopic', FILTER_DEFAULT, FILTER_FORCE_ARRAY);
+            foreach ($scripture_topics as $topic){
+                addScriptureLinks($topic, $rowOutcome);
+            }
+            header("Location:/teamprojects/index.php?action=week05");
+            exit;
+        }
+    break;
+
+    case 'addScripture' :
+        $topics = getTopics();
+        $topicsList = topicBuilder($topics);
+        include '../view/add-scripture.php';
+    break;
+
     case 'week02':
         include '../view/w02-teach.php';
         break;
+
     case 'week03':
         $majors = array(
             "cs" => "Computer Science",
@@ -81,19 +123,10 @@ switch ($action){
 
     case 'week05':
         $scriptures = getScriptures();
-        if (count($scriptures) > 0) {
-            $scripturesList = "<ul class='list-group'>";
-            foreach ($scriptures as $scripture) {
-                $scripturesList .= "<li class='list-group-item'><span class='font-weight-bold'>" . $scripture['scripture_book'] . " " . $scripture['scripture_chapter'] . ":" . $scripture['scripture_verse'] . " - " . "</span>" . $scripture['scripture_content'] . "</li>";
-            }
-            $scripturesList .= "</ul>";
-        } else {
-            $message = '<p class="notify">Sorry, no scriptures were returned.</p>';
-        }
+        $scripturesList = scriptureBuilder($scriptures);
         include '../view/scriptures-resources.php';
         break;
 
     default:
         break;
 }
-?>
