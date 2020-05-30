@@ -13,19 +13,19 @@ CREATE TABLE team_users (
 
 CREATE TABLE payment_status (
     status_id   INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    payment_status INT NOT NULL CHECK(payment_status >= 0),
+    payment_status VARCHAR(40) NOT NULL,
     UNIQUE (payment_status)
 );
 
 CREATE TABLE delivery_status (
     status_id   INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    delivery_status INT NOT NULL CHECK(delivery_status >= 0),
+    delivery_status VARCHAR(40) NOT NULL,
     UNIQUE (delivery_status)
 );
 
 CREATE TABLE purchase_status (
     status_id   INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    purchase_status INT NOT NULL CHECK(purchase_status >= 0),
+    purchase_status VARCHAR(40) NOT NULL,
     UNIQUE(purchase_status)
 );
 
@@ -46,7 +46,7 @@ CREATE TABLE customers (
 
 CREATE TABLE customer_contacts (
     contact_id  INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    customer_id INT NOT NULL REFERENCES customers(customer_id),
+    customer_id INT NOT NULL REFERENCES customers(customer_id) ON DELETE CASCADE,
     contact_name    VARCHAR(50) NOT NULL,
     contact_department    VARCHAR(50) NOT NULL,
     contact_phone   TEXT DEFAULT NULL,
@@ -55,7 +55,7 @@ CREATE TABLE customer_contacts (
 
 CREATE TABLE customer_addresses (
     address_id  INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    customer_id INT NOT NULL REFERENCES customers(customer_id),
+    customer_id INT NOT NULL REFERENCES customers(customer_id) ON DELETE CASCADE,
     customer_address    TEXT NOT NULL,
     shipping_address    BOOLEAN NOT NULL
 );
@@ -73,8 +73,8 @@ CREATE TABLE quotes (
     quote_date  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     quote_prefix    VARCHAR(10) NOT NULL,
     quote_no    VARCHAR(10) NOT NULL,
-    customer_id INT NOT NULL REFERENCES customers(customer_id),
-    contact_id INT NOT NULL REFERENCES customer_contacts(contact_id),
+    customer_id INT REFERENCES customers(customer_id),
+    contact_id INT REFERENCES customer_contacts(contact_id),
     quote_subtotal    NUMERIC NOT NULL CHECK(quote_subtotal > 0),
     quote_taxes   NUMERIC NOT NULL CHECK(quote_taxes >= 0),
     quote_total NUMERIC NOT NULL,
@@ -86,10 +86,9 @@ CREATE TABLE invoices (
     invoice_date    TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     invoice_prefix  VARCHAR(10) NOT NULL,
     invoice_no  VARCHAR(10) NOT NULL,
-    quote_id    INT NOT NULL REFERENCES quotes(quote_id),
-    customer_id INT NOT NULL REFERENCES customers(customer_id),
-    contact_id INT NOT NULL REFERENCES customer_contacts(contact_id),
-    shipping_company1_id INT DEFAULT NULL REFERENCES shipping_companies(shipping_company_id),
+    quote_id    INT REFERENCES quotes(quote_id),
+    customer_id INT REFERENCES customers(customer_id),
+    contact_id INT REFERENCES customer_contacts(contact_id),
     invoice_subtotal    NUMERIC NOT NULL CHECK(invoice_subtotal > 0),
     invoice_taxes   NUMERIC NOT NULL CHECK(invoice_taxes >= 0),
     invoice_total NUMERIC NOT NULL,
@@ -101,10 +100,10 @@ CREATE TABLE invoices (
 CREATE TABLE sales_orders (
     sales_order_id  INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     sales_order_date    TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    quote_id  INT NOT NULL REFERENCES quotes(quote_id),
-    customer_id INT NOT NULL REFERENCES customers(customer_id),
-    contact_id INT NOT NULL REFERENCES customer_contacts(contact_id),
-    shipping_address_id INT NOT NULL REFERENCES customer_addresses(address_id),
+    invoice_id  INT NOT NULL REFERENCES invoices(invoice_id) ON DELETE CASCADE,
+    customer_id INT REFERENCES customers(customer_id),
+    contact_id INT REFERENCES customer_contacts(contact_id),
+    shipping_address_id INT REFERENCES customer_addresses(address_id),
     delivery_status INT DEFAULT 0 REFERENCES delivery_status(status_id),
     shipping_company1_id INT DEFAULT NULL REFERENCES shipping_companies(shipping_company_id),
     track_no_sc1    TEXT DEFAULT NULL,
@@ -119,9 +118,9 @@ CREATE TABLE sales_orders (
 CREATE TABLE financial_operations(
     financial_operation_id  INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     financial_operation_date    TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    invoice_id  INT NOT NULL REFERENCES invoices(invoice_id),
-    customer_id INT NOT NULL REFERENCES customers(customer_id),
-    contact_id INT NOT NULL REFERENCES customer_contacts(contact_id),
+    invoice_id  INT NOT NULL REFERENCES invoices(invoice_id) ON DELETE CASCADE,
+    customer_id INT REFERENCES customers(customer_id),
+    contact_id INT REFERENCES customer_contacts(contact_id),
     invoice_subtotal    NUMERIC NOT NULL CHECK(invoice_subtotal > 0),
     invoice_taxes   NUMERIC NOT NULL CHECK(invoice_taxes >= 0),
     invoice_total NUMERIC NOT NULL,

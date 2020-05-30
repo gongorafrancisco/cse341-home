@@ -1,30 +1,25 @@
-<?php
-if (isset($_SESSION['message'])) {
-    $message = $_SESSION['message'];
-}
-?>
 <!doctype html>
 <html lang="en-US">
 
 <head>
     <meta charset="utf-8">
-    <title>Customers | Sales Follow UP</title>
+    <title>Add Customer Contact| Sales Follow UP</title>
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/head.php'; ?>
 </head>
 
 <body>
-    <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-navt.php'; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-navt.php'; ?>
     <div class="container-fluid h-100">
         <div class="row h-100">
-            <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-navl.php'; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-navl.php'; ?>
             <div class="col h-100 py-4 px-3">
-                <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-customersFilter-form.php'; ?>
-                <?php if (isset($message)){echo "<div class='alert alert-info' role='alert'>".$message."</div>";}?>
-                <div class="h-100 my-4 overflow-auto">
-                    <?php if (isset($customersList)) {
-                        echo $customersList;
-                    } ?>
+                <h3 class="h3 text-center">Add Customer Contact</h3>
+                <div class="col-10 my-5 mx-auto alert alert-info" role="alert">
+                    All fields are required.
+                    <a class="alert-link mx-3" href="../sf-contacts">Back to Contacts</a>
                 </div>
+                    <?php if (isset($message)){echo "<div class='alert alert-info' role='alert'>".$message."</div>";}?>
+                    <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-contactsAdd-form.php'; ?>
             </div>
         </div>
     </div>
@@ -35,4 +30,3 @@ if (isset($_SESSION['message'])) {
 </body>
 
 </html>
-<?php unset($_SESSION['message']); ?>
