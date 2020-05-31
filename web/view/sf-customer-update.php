@@ -14,11 +14,11 @@
         <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-navl.php'; ?>
             <div class="col h-100 py-4 px-3">
                 <h3 class="h3 text-center"><?php if(isset($customerInfo['0']['customer_name'])){ echo "Update Customer ".$customerInfo['0']['customer_name'];}?></h3>
-                <div class="col-10 my-5 mx-auto alert alert-info" role="alert">
+                <div class="col-10 mt-5 mx-auto alert alert-info" role="alert">
                     Official Name and Tax ID are required. Phone and Email are Optional.
                     <a class="alert-link mx-3" href="../sf-customers">Back to Customers</a>
                 </div>
-                <?php if (isset($message)){echo "<div class='alert alert-info' role='alert'>".$message."</div>";}?>
+                <?php if (isset($message)){echo "<div class='col-10 mt-2 mx-auto alert alert-info' role='alert'>".$message."</div>";}?>
                 <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-customersMod-form.php'; ?> 
             </div>
         </div>

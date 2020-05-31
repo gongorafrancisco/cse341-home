@@ -14,7 +14,7 @@
         <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-navl.php'; ?>
             <div class="col h-100 py-4 px-3">
                 <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-customersFilter-form.php'; ?>
-                <?php if (isset($message)){echo "<div class='alert alert-info pb-0' role='alert'>".$message."</div>";}?>
+                <?php if (isset($message)){echo "<div class='col-10 mt-2 mx-auto alert alert-info' role='alert'>".$message."</div>";}?>
                     <div class="h-100 my-4 overflow-auto">
                         <?php if (isset($customersFiltered)){echo $customersFiltered;}?>
                     </div>

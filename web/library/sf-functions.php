@@ -52,4 +52,14 @@ function generalInfoBuilder($customerInfo) {
         return $giTable;
 }
 
+function selectCustomersElement($customers){
+    $customersList = "<select class='form-control' name='customerNo' id='customerNo' required>";
+    $customersList .= "<option>Choose a Company</option>";
+    foreach ($customers as $customer) {
+        $customersList .= "<option value='".$customer['customer_id' ]."'>".$customer['customer_name']."</option>";
+    }
+    $customersList .= "</select>";
+    return $customersList;
+}
+
 ?>

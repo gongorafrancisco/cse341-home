@@ -9,6 +9,7 @@ require_once '../library/connections.php';
 
 //Get the herokuConnect function out of the connections.php file
 require_once '../model/sf-contacts-model.php';
+require_once '../model/sf-customers-model.php';
 
 //Get the functions from sf-functions.php file
 require_once '../library/sf-functions.php';
@@ -19,7 +20,7 @@ if ($action == NULL) {
 }
 
 switch ($action) {
-    case 'confirmDeletion':
+/*     case 'confirmDeletion':
         $contact_id = filter_input(INPUT_POST, 'contactNo', FILTER_VALIDATE_INT);
         $contact_name = filter_input(INPUT_POST, 'officialName', FILTER_SANITIZE_STRING);
         $deleteOutcome = deleteContact($contact_id);
@@ -35,45 +36,47 @@ switch ($action) {
            }
         break;
 
-    case 'delete':
+    case 'delete': 
         $contact_id = filter_input(INPUT_GET, 'contactNo', FILTER_VALIDATE_INT);
         $contactInfo = getContactById($contact_id);
         if (count($contactInfo) < 1) {
             $message = "<Sorry, contact was not found.";
         }
         include '../view/sf-contact-delete.php';
-        break;
+        break;*/
     case 'insertContact':
-        $contact_name = filter_input(INPUT_POST, 'officialName', FILTER_SANITIZE_STRING);
-        $contact_taxid = filter_input(INPUT_POST, 'taxID', FILTER_SANITIZE_STRING);
+        $customer_id = filter_input(INPUT_POST, 'customerNo', FILTER_VALIDATE_INT);
+        $contact_name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
+        $contact_department = filter_input(INPUT_POST, 'department', FILTER_SANITIZE_STRING);
         $contact_phone = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_STRING);
         $contact_email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
-
-        if (empty($contact_name) || empty($contact_taxid)) {
+        
+         if (empty($customer_id) || empty($contact_name) || empty($contact_department)) {
             $message = "Please provide information for all empty form fields.";
-            include '../view/sf-contact-add.php';
+            include '../view/sf-contacts-add.php';
             exit;
         }
 
-        $insertOutcome = insertContact($contact_name, $contact_taxid, $contact_phone, $contact_email);
+        $insertOutcome = insertContact($customer_id, $contact_name, $contact_department, $contact_phone, $contact_email);
 
         // Check and report the result
         if ($insertOutcome === 1) {
-            $message = "Contact " . $contact_name . " was successfully added.";
-            include '../view/sf-contact-add.php';
+            $message = "Contact <strong>" . $contact_name . "</strong> was successfully added.";
+            include '../view/sf-contacts-add.php';
             exit;
         } else {
             $message = "Sorry, the add the contact failed. Please try again.";
-            include '../view/sf-contact-add.php';
+            include '../view/sf-contacts-add.php';
             exit;
         }
+        
         break;
 
     case 'create':
         include '../view/sf-contacts-add.php';
         break;
     
-    case 'updateContact':
+/*     case 'updateContact':
         $contact_name = filter_input(INPUT_POST, 'officialName', FILTER_SANITIZE_STRING);
         $contact_taxid = filter_input(INPUT_POST, 'taxID', FILTER_SANITIZE_STRING);
         $contact_phone = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_STRING);
@@ -126,15 +129,15 @@ switch ($action) {
             $message = '<p class="text-danger">Sorry, your search did not match any contact.</p>';
         }
         include '../view/sf-contacts-filtered.php';
-        break;
+        break; */
 
     default:
-        $contacts = getContacts();
+       /*  $contacts = getContacts();
         if (count($contacts) > 0) {
             $contactsList = contactsBuilder($contacts);
         } else {
             $message = '<p class="bg-danger">Sorry, no contacts were found.</p>';
         }
-        include '../view/sf-contacts.php';
+        include '../view/sf-contacts.php'; */
         break;
 }
