@@ -2,7 +2,9 @@
 
 function getContacts(){
   $db = herokuConnect();
-  $sql = "SELECT contact_id, contact_name, contact_taxid, contact_phone, contact_email FROM contacts ORDER BY contact_name";
+  $sql = "SELECT cc.contact_id, cc.contact_name, cc.contact_department, cc.contact_phone, cc.contact_email, c.customer_name FROM customer_contacts AS cc 
+  LEFT JOIN customers AS c ON c.customer_id = cc.customer_id
+  ORDER BY contact_name";
   $stmt = $db->prepare($sql);
   $stmt->execute();
   $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);

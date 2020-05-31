@@ -69,7 +69,6 @@ switch ($action) {
             include '../view/sf-contacts-add.php';
             exit;
         }
-        
         break;
 
     case 'create':
@@ -132,12 +131,12 @@ switch ($action) {
         break; */
 
     default:
-       /*  $contacts = getContacts();
+       $contacts = getContacts();
         if (count($contacts) > 0) {
             $contactsList = contactsBuilder($contacts);
         } else {
             $message = '<p class="bg-danger">Sorry, no contacts were found.</p>';
         }
-        include '../view/sf-contacts.php'; */
+        include '../view/sf-contacts.php';
         break;
 }

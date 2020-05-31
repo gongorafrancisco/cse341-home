@@ -6,7 +6,7 @@
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="../sf-customers">View All</a>
                         <a class="dropdown-item" href="../sf-customers/index.php?action=create">Add Customer</a>
-                        <a class="dropdown-item" href="#">View Contacts</a>
+                        <a class="dropdown-item" href="../sf-contacts">View Contacts</a>
                         <a class="dropdown-item" href="../sf-contacts/index.php?action=create">Add Contact</a>
                         <a class="dropdown-item" href="#">View Addresses</a>
                         <a class="dropdown-item" href="#">Add Addresses</a>

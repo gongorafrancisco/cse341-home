@@ -62,4 +62,31 @@ function selectCustomersElement($customers){
     return $customersList;
 }
 
+function contactsBuilder($contacts) {
+    $list = "<table class='table'>
+                                <thead class='thead-light'>
+                                    <tr>
+                                        <th scope='col'>Name</th>
+                                        <th>Company</th>
+                                        <th>Department</th>
+                                        <th>Phone</th>
+                                        <th>Email</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>";
+            foreach ($contacts as $contact) {
+                $list .= "<tr>
+                                        <th scope='row'>" . $contact['contact_name'] . "</th>
+                                        <td>" . $contact['customer_name'] . "</td>
+                                        <td>" . $contact['contact_department'] . "</td>
+                                        <td>" . $contact['contact_phone'] . "</td>
+                                        <td>" . $contact['contact_email'] . "</td>
+                                        <td><a href='../sf-contacts/index.php?action=modify&contactNo=".$contact['contact_id']."' class='btn btn-primary'>Modify</a><a href='../sf-contacts/index.php?action=delete&contactNo=".$contact['contact_id']."' class='ml-3 btn btn-danger'>Delete</a></td>
+                                    </tr>";
+            }
+            $list .= "</tbody></table>";
+            return $list;
+}
+
 ?>
