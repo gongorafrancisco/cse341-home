@@ -18,18 +18,20 @@ if ($action == NULL) {
     $action = filter_input(INPUT_GET, 'action');
 }
 
+$searchOptions = array("No.", "Name", "Tax ID", "Phone", "Email");
+
 switch ($action) {
     case 'confirmDeletion':
         $customer_id = filter_input(INPUT_POST, 'customerNo', FILTER_VALIDATE_INT);
         $customer_name = filter_input(INPUT_POST, 'officialName', FILTER_SANITIZE_STRING);
         $deleteOutcome = deleteCustomer($customer_id);
         if ($deleteOutcome === 1) {
-            $message = "Customer ".$customer_name. " was successfully deleted.";
+            $message = "Customer <strong>".$customer_name. "</strong> was successfully deleted.";
             $_SESSION['message'] = $message;
             header("Location:/sf-customers");
             exit;
            } else {
-            $message = "Error ".$customer_name. "was not deleted.";
+            $message = "Error <strong>".$customer_name. "</strong> was not deleted.";
             include '../view/sf-customer-delete.php';
             exit;
            }
@@ -59,7 +61,7 @@ switch ($action) {
 
         // Check and report the result
         if ($insertOutcome === 1) {
-            $message = "Customer " . $customer_name . " was successfully added.";
+            $message = "Customer <strong>" . $customer_name . "</strong> was successfully added.";
             include '../view/sf-customer-add.php';
             exit;
         } else {
@@ -86,12 +88,12 @@ switch ($action) {
         }
         $updateOutcome = updateCustomer($customer_id, $customer_name, $customer_taxid, $customer_phone, $customer_email);
         if ($updateOutcome === 1) {
-            $message = "Customer ".$customer_name. " was successfully updated.";
+            $message = "Customer <strong>".$customer_name. "</strong> was successfully updated.";
             $_SESSION['message'] = $message;
             header("Location:/sf-customers");
             exit;
            } else {
-            $message = "Error ".$customer_name. "was not updated.";
+            $message = "Error <strong>".$customer_name. "</strong> was not updated.";
             include '../view/sf-customer-update.php';
             exit;
            }
@@ -111,19 +113,52 @@ switch ($action) {
         if (count($customerInfo) > 0) {
             $customerDetails = generalInfoBuilder($customerInfo);
         } else {
-            $message = '<p class="text-danger">Sorry, your search did not match any customer.</p>';
+            $message = "Sorry, your search did not match any customer.";
         }
         include '../view/sf-customer-details.php';
         break;
 
     case 'search':
+        $optionSelected = filter_input(INPUT_GET, 'filter_option', FILTER_VALIDATE_INT);
         $userInput = filter_input(INPUT_GET, 'filter_value', FILTER_SANITIZE_STRING);
-        $filtervalue = "%" . $userInput . "%";
-        $customers = getCustomersByFilter($filtervalue);
+        $filterName = "";
+        $filterValue = "";
+        $customers = "";
+        switch ($optionSelected){
+            case 0 : 
+                $filterValue = filter_input(INPUT_GET, 'filter_value', FILTER_VALIDATE_INT);
+                $customers = getCustomerById($filterValue);
+            break;
+
+            case 1 :
+                $filterName = "customer_name";
+                $filterValue = "%" . $userInput . "%";
+                $customers = getCustomersByFilter($filterName, $filterValue);
+            break;
+
+            case 2 :
+                $filterName = "customer_taxid";
+                $filterValue = "%" . $userInput . "%";
+                $customers = getCustomersByFilter($filterName, $filterValue);
+            break;
+
+            case 3 :
+                $filterName = "customer_phone";
+                $filterValue = "%" . $userInput . "%";
+                $customers = getCustomersByFilter($filterName, $filterValue);
+            break;
+
+            case 4 :
+                $filterName = "customer_email";
+                $filterValue = "%" . $userInput . "%";
+                $customers = getCustomersByFilter($filterName, $filterValue);
+            break;
+        }
+        
         if (count($customers) > 0) {
             $customersFiltered = customersBuilder($customers);
         } else {
-            $message = '<p class="text-danger">Sorry, your search did not match any customer.</p>';
+            $message = 'Sorry, your search did not match any customer.';
         }
         include '../view/sf-customers-filtered.php';
         break;

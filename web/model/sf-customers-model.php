@@ -2,7 +2,7 @@
 // Get the values from the customers table a simple query
 function getCustomers(){
   $db = herokuConnect();
-  $sql = "SELECT customer_id, customer_name, customer_taxid, customer_phone, customer_email FROM customers ORDER BY customer_name";
+  $sql = "SELECT * FROM customers ORDER BY customer_name";
   $stmt = $db->prepare($sql);
   $stmt->execute();
   $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -10,11 +10,11 @@ function getCustomers(){
   return $rows;
 }
 
-function getCustomersByFilter($filtervalue){
+function getCustomersByFilter($filterName, $filterValue){
   $db = herokuConnect();
-  $sql = "SELECT customer_id, customer_name, customer_taxid, customer_phone, customer_email FROM customers WHERE customer_name LIKE :filtervalue ORDER BY customer_name";
+  $sql = "SELECT * FROM customers WHERE $filterName LIKE :filterValue ORDER BY customer_name";
   $stmt = $db->prepare($sql);
-  $stmt->bindValue(':filtervalue', $filtervalue, PDO::PARAM_STR);
+  $stmt->bindValue(':filterValue', $filterValue, PDO::PARAM_STR);
   $stmt->execute();
   $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
   $stmt->closeCursor();

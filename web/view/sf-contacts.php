@@ -1,7 +1,6 @@
 <?php
-if (isset($_SESSION['message'])) {
-    $message = $_SESSION['message'];
-}
+if (isset($_SESSION['message'])) {$message = $_SESSION['message'];}
+$optionsList = selectSearchElement($searchOptions, $optionSelected);
 ?>
 <!doctype html>
 <html lang="en-US">

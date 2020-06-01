@@ -3,14 +3,14 @@
                 <label for="name" class="col-sm-2 col-form-label">Contact Name</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="name" name="name" aria-describedby="nameHelp" maxlength="50" required>
-                    <small id="namelHelp" class="form-text text-muted">e.g. John Harris.</small>
+                    <small id="nameHelp" class="form-text text-muted">e.g. John Harris</small>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="customerNo" class="col-sm-2 col-form-label">Company</label>
                 <div class="col-sm-10">
-                    <?php echo $customersList ?>
-                    <small id="companyHelp" class="form-text text-muted">e.g. Management</small>
+                    <?php if(isset($customersList)){echo $customersList;} ?>
+                    <small id="companyHelp" class="form-text text-muted">e.g. Amazon</small>
                 </div>
             </div>
             <div class="form-group row">

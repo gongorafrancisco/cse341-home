@@ -3,7 +3,12 @@
     <form class="needs-validation" action="../sf-contacts/index.php" method="get">
         <div class="form-row align-items-center">
             <div class="col-auto">
-                <label>Search</label>
+                <label>Search by</label>
+            </div>
+            <div class="col-auto">
+                <div class="input-group mb-2">
+                <?php if(isset($optionsList)){echo $optionsList;}?>
+                </div>
             </div>
             <div class="col-auto">
                 <div class="input-group mb-2">

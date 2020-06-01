@@ -18,7 +18,7 @@ function customersBuilder($customers){
                                         <td>" . $customer['customer_taxid'] . "</td>
                                         <td>" . $customer['customer_phone'] . "</td>
                                         <td>" . $customer['customer_email'] . "</td>
-                                        <td><a href='../sf-customers/index.php?action=details&customerNo=".$customer['customer_id']."' class='btn btn-info'>Details</a></td>
+                                        <td><a href='../sf-customers/index.php?action=details&customerNo=".$customer['customer_id']."' class='link text-info'>Details</a></td>
                                         <td><a href='../sf-customers/index.php?action=modify&customerNo=".$customer['customer_id']."' class='btn btn-primary'>Modify</a><a href='../sf-customers/index.php?action=delete&customerNo=".$customer['customer_id']."' class='ml-3 btn btn-danger'>Delete</a></td>
                                     </tr>";
             }
@@ -53,13 +53,45 @@ function generalInfoBuilder($customerInfo) {
 }
 
 function selectCustomersElement($customers){
-    $customersList = "<select class='form-control' name='customerNo' id='customerNo' required>";
-    $customersList .= "<option>Choose a Company</option>";
+    $element = "<select class='form-control' name='customerNo' id='customerNo' required>";
+    $element .= "<option>Choose a Company</option>";
     foreach ($customers as $customer) {
-        $customersList .= "<option value='".$customer['customer_id' ]."'>".$customer['customer_name']."</option>";
+        $element .= "<option value='".$customer['customer_id']."'>".$customer['customer_name']."</option>";
     }
-    $customersList .= "</select>";
-    return $customersList;
+    $element .= "</select>";
+    return $element;
+}
+
+function selectCustomersElementModify($customers, $selection){
+    $element = "<select class='form-control' name='customerNo' id='customerNo' required>";
+    $element .= "<option>Choose a Company</option>";
+    foreach ($customers as $customer) {
+        $element .= "<option value='".$customer['customer_id']."'";
+        if(isset($selection)){
+            if($customer['customer_id']===$selection){
+                $element .= " selected ";
+            }
+        }
+        $element .= ">".$customer['customer_name']."</option>";
+    }
+    $element .= "</select>";
+    return $element;
+}
+
+function selectCustomersElementDelete($customers, $selection){
+    $element = "<select class='form-control' name='customerNo' id='customerNo' disabled>";
+    $element .= "<option>Choose a Company</option>";
+    foreach ($customers as $customer) {
+        $element .= "<option value='".$customer['customer_id']."'";
+        if(isset($selection)){
+            if($customer['customer_id']===$selection){
+                $element .= " selected ";
+            }
+        }
+        $element .= ">".$customer['customer_name']."</option>";
+    }
+    $element .= "</select>";
+    return $element;
 }
 
 function contactsBuilder($contacts) {
@@ -87,6 +119,23 @@ function contactsBuilder($contacts) {
             }
             $list .= "</tbody></table>";
             return $list;
+}
+
+function selectSearchElement($options, $selection) {
+    
+    $element = "<select class='form-control' name='filter_option' id='inlineFormInputGroup' required>";
+    $element .= "<option value=''>Select a filter</option>";
+    foreach ($options as $key => $option){
+        $element .= "<option value='".$key."'";
+        if(isset($selection)){
+            if($key === $selection){
+                $element .= " selected ";
+            }
+        }
+        $element .= ">".$option."</option>";
+    }
+    $element .= "</select>";
+        return $element;
 }
 
 ?>

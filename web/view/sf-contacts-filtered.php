@@ -1,5 +1,4 @@
 <?php
-if (isset($_SESSION['message'])) {$message = $_SESSION['message'];}
 $optionsList = selectSearchElement($searchOptions, $optionSelected);
 ?>
 <!doctype html>
@@ -12,18 +11,16 @@ $optionsList = selectSearchElement($searchOptions, $optionSelected);
 </head>
 
 <body>
-    <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-navt.php'; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-navt.php'; ?>
     <div class="container-fluid h-100">
         <div class="row h-100">
-            <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-navl.php'; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-navl.php'; ?>
             <div class="col h-100 py-4 px-3">
-                <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-customersFilter-form.php'; ?>
-                <?php if (isset($message)){echo "<div class='alert alert-info' role='alert'>".$message."</div>";}?>
-                <div class="h-100 my-4 overflow-auto">
-                    <?php if (isset($customersList)) {
-                        echo $customersList;
-                    } ?>
-                </div>
+                <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-contactsFilter-form.php'; ?>
+                <?php if (isset($message)){echo "<div class='col mt-2 mx-auto alert alert-info' role='alert'>".$message."</div>";}?>
+                    <div class="h-100 my-4 overflow-auto">
+                        <?php if (isset($contactsFiltered)){echo $contactsFiltered;}?>
+                    </div>
             </div>
         </div>
     </div>
@@ -34,4 +31,3 @@ $optionsList = selectSearchElement($searchOptions, $optionSelected);
 </body>
 
 </html>
-<?php unset($_SESSION['message']); ?>

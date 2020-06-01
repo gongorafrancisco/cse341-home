@@ -1,12 +1,13 @@
 <?php
-$optionsList = selectSearchElement($searchOptions, $optionSelected);
+$customers = getCustomers();
+$customersList = selectCustomersElementModify($customers, $contactInfo['0']['customer_id']);
 ?>
 <!doctype html>
 <html lang="en-US">
 
 <head>
     <meta charset="utf-8">
-    <title>Customers | Sales Follow UP</title>
+    <title>Contact Update| Sales Follow UP</title>
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/head.php'; ?>
 </head>
 
@@ -16,11 +17,13 @@ $optionsList = selectSearchElement($searchOptions, $optionSelected);
         <div class="row h-100">
         <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-navl.php'; ?>
             <div class="col h-100 py-4 px-3">
-                <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-customersFilter-form.php'; ?>
-                <?php if (isset($message)){echo "<div class='col mt-2 mx-auto alert alert-info' role='alert'>".$message."</div>";}?>
-                    <div class="h-100 my-4 overflow-auto">
-                        <?php if (isset($customersFiltered)){echo $customersFiltered;}?>
-                    </div>
+                <h3 class="h3 text-center"><?php if(isset($contactInfo['0']['contact_name'])){ echo "Update Contact ".$contactInfo['0']['contact_name'];}?></h3>
+                <div class="col-10 mt-5 mx-auto alert alert-info" role="alert">
+                    Official Name and Tax ID are required. Phone and Email are Optional.
+                    <a class="alert-link mx-3" href="../sf-contacts">Back to Contacts</a>
+                </div>
+                <?php if (isset($message)){echo "<div class='col-10 mt-2 mx-auto alert alert-info' role='alert'>".$message."</div>";}?>
+                <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-contactsMod-form.php'; ?> 
             </div>
         </div>
     </div>
