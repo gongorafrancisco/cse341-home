@@ -20,19 +20,19 @@ if ($action == NULL) {
 }
 
 $searchOptions = array("No.", "Company" ,"Address", "Is Shipping Address");
-
+$booleanOptions = array("Yes", "No");
 switch ($action) {
-     /* case 'confirmDeletion':
+    case 'confirmDeletion':
         $address_id = filter_input(INPUT_POST, 'addressNo', FILTER_VALIDATE_INT);
-        $address_name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
+        $customer_name = filter_input(INPUT_POST, 'customer', FILTER_SANITIZE_STRING);
         $deleteOutcome = deleteAddress($address_id);
         if ($deleteOutcome === 1) {
-            $message = "Address <strong>".$address_name. "</strong> was successfully deleted.";
+            $message = "Address for customer <strong>".$customer_name. "</strong> was successfully deleted.";
             $_SESSION['message'] = $message;
-            header("Location:/sf-address");
+            header("Location:/sf-addresses");
             exit;
            } else {
-            $message = "Error <strong>".$address_name. "</strong> was not deleted.";
+            $message = "Error address for customer <strong>".$customer_name. "</strong> was not deleted.";
             include '../view/sf-address-delete.php';
             exit;
            }
@@ -44,8 +44,9 @@ switch ($action) {
         if (count($addressInfo) < 1) {
             $message = "<Sorry, address was not found.";
         }
-        include '../view/sf-address-delete.php';
-        break;*/
+        include '../view/sf-addresses-delete.php';
+        break;
+
     case 'insertAddress':
         $customer_id = filter_input(INPUT_POST, 'customerNo', FILTER_VALIDATE_INT);
         $customer_address = filter_input(INPUT_POST, 'address', FILTER_SANITIZE_STRING);
@@ -59,7 +60,6 @@ switch ($action) {
 
         $insertOutcome = insertAddress($customer_id, $customer_address, $shipping_address);
 
-        // Check and report the result
         if ($insertOutcome === 1) {
             $message = "Address for was successfully added.";
             include '../view/sf-addresses-add.php';
@@ -75,30 +75,28 @@ switch ($action) {
         include '../view/sf-addresses-add.php';
         break;
     
-    /*case 'updateAddress':
+    case 'updateAddress':
         $address_id = filter_input(INPUT_POST, 'addressNo', FILTER_VALIDATE_INT);
         $customer_id = filter_input(INPUT_POST, 'customerNo', FILTER_VALIDATE_INT);
-        $address_name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
-        $address_department = filter_input(INPUT_POST, 'department', FILTER_SANITIZE_STRING);
-        $address_phone = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_STRING);
-        $address_email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
-        if (empty($customer_id) || empty($address_name) || empty($address_department)) {
+        $customer_address = filter_input(INPUT_POST, 'address', FILTER_SANITIZE_STRING);
+        $shipping_address = filter_input(INPUT_POST, 'shipping', FILTER_SANITIZE_STRING);
+        if (empty($customer_id) || empty($customer_address) || empty($shipping_address)) {
             $message = "Please provide information for all empty form fields.";
-            include '../view/sf-address-add.php';
+            include '../view/sf-addresses-update.php';
             exit;
         }
-        $updateOutcome = updateAddress($customer_id, $address_name, $address_department, $address_phone, $address_email, $address_id);
+        $updateOutcome = updateAddress($address_id, $customer_id, $customer_address, $shipping_address);
         if ($updateOutcome === 1) {
-            $message = "Address <strong>".$address_name. "</strong> was successfully updated.";
+            $message = "Address was successfully updated.";
             $_SESSION['message'] = $message;
-            header("Location:/sf-address");
+            header("Location:/sf-addresses");
             exit;
            } else {
-            $message = "Error <strong>".$address_name. "</strong> was not updated.";
-            include '../view/sf-address-update.php';
+            $message = "Error was not updated.";
+            include '../view/sf-addresses-update.php';
             exit;
            }
-        break;*/
+        break;
     case 'modify':
         $address_id = filter_input(INPUT_GET, 'addressNo', FILTER_VALIDATE_INT);
         $addressInfo = getAddressById($address_id);
@@ -107,17 +105,6 @@ switch ($action) {
         }
         include '../view/sf-addresses-update.php';
         break;
-
-    /*case 'details':
-        $address_id = filter_input(INPUT_GET, 'addressNo', FILTER_VALIDATE_INT);
-        $addressInfo = getAddressDetails($address_id);
-        if (count($addressInfo) > 0) {
-            $addressDetails = generalInfoBuilder($addressInfo);
-        } else {
-            $message = '<p class="text-danger">Sorry, your search did not match any address.</p>';
-        }
-        include '../view/sf-address-details.php';
-        break;*/
 
     case 'search':
         $optionSelected = filter_input(INPUT_GET, 'filter_option', FILTER_VALIDATE_INT);

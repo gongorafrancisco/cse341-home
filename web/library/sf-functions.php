@@ -163,4 +163,36 @@ function addressesBuilder($addresses) {
             return $table;
 }
 
+function shippingAddressModify($array, $selection){
+    $element = "<select class='form-control' name='shipping' id='inlineFormInputGroup' required>";
+    $element .= "<option>Choose an option</option>";
+    foreach ($array as $b){
+        $element .= "<option value='".$b."'";
+        if(isset($selection)){
+            if($b===$selection){
+                $element .= " selected ";
+            }
+        }
+        $element .= ">".$b."</option>";
+    }
+    $element .= "</select>";
+    return $element;
+}
+
+function shippingAddressDelete($array, $selection){
+    $element = "<select class='form-control' name='shipping' id='inlineFormInputGroup' disabled>";
+    $element .= "<option>Choose an option</option>";
+    foreach ($array as $b){
+        $element .= "<option value='".$b."'";
+        if(isset($selection)){
+            if($b===$selection){
+                $element .= " selected ";
+            }
+        }
+        $element .= ">".$b."</option>";
+    }
+    $element .= "</select>";
+    return $element;
+}
+
 ?>

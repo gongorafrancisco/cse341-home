@@ -35,7 +35,7 @@
                 </div>
             </div>
             <div class="col-8 my-2 mx-auto p-0">
-                <button type="submit" class="w-100 btn btn-primary">Delete Contact</button>
+                <button type="submit" class="w-100 btn btn-primary">Confirm contact deletion</button>
                 <input type="hidden" name="action" value="confirmDeletion">
                 <input type="hidden" name="contactNo" <?php if(isset($contactInfo['0']['contact_id'])){ echo "value='".$contactInfo['0']['contact_id']."'";}?>>
             </div>
