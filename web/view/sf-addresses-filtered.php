@@ -6,7 +6,7 @@ $optionsList = selectSearchElement($searchOptions, $optionSelected);
 
 <head>
     <meta charset="utf-8">
-    <title>Contacts | Sales Follow UP</title>
+    <title>Customer Addresses | Sales Follow UP</title>
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/head.php'; ?>
 </head>
 
@@ -16,10 +16,10 @@ $optionsList = selectSearchElement($searchOptions, $optionSelected);
         <div class="row h-100">
         <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-navl.php'; ?>
             <div class="col h-100 py-4 px-3">
-                <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-contactsFilter-form.php'; ?>
+                <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-addressesFilter-form.php'; ?>
                 <?php if (isset($message)){echo "<div class='col mt-2 mx-auto alert alert-info' role='alert'>".$message."</div>";}?>
                     <div class="h-100 my-4 overflow-auto">
-                        <?php if (isset($contactsFiltered)){echo $contactsFiltered;}?>
+                        <?php if (isset($addressesFiltered)){echo $addressesFiltered;}?>
                     </div>
             </div>
         </div>

@@ -138,4 +138,29 @@ function selectSearchElement($options, $selection) {
         return $element;
 }
 
+function addressesBuilder($addresses) {
+    $table = "<table class='table'>
+                                <thead class='thead-light'>
+                                    <tr>
+                                        <th scope='col'>No.</th>
+                                        <th>Company</th>
+                                        <th>Address</th>
+                                        <th>Shipping Address</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>";
+            foreach ($addresses as $address) {
+                $table .= "<tr>
+                                        <th scope='row'>" . $address['address_id'] . "</th>
+                                        <td>" . $address['customer_name'] . "</td>
+                                        <td>" . $address['customer_address'] . "</td>
+                                        <td>" . $address['shipping_address'] . "</td>
+                                        <td><a href='../sf-addresses/index.php?action=modify&addressNo=".$address['address_id']."' class='btn btn-primary'>Modify</a><a href='../sf-addresses/index.php?action=delete&addressNo=".$address['address_id']."' class='ml-3 btn btn-danger'>Delete</a></td>
+                                    </tr>";
+            }
+            $table .= "</tbody></table>";
+            return $table;
+}
+
 ?>

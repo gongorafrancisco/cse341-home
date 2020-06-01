@@ -25,7 +25,7 @@ function getContactsByFilter($filterName, $filtervalue){
   return $rows;
 }
 
-function getContactDetails($contact_id){
+/* function getContactDetails($contact_id){
   $db = herokuConnect();
   $sql = "SELECT contact_id, contact_name, contact_taxid, contact_phone, contact_email FROM contacts WHERE contact_id = :contact_id";
   $stmt = $db->prepare($sql);
@@ -34,7 +34,7 @@ function getContactDetails($contact_id){
   $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
   $stmt->closeCursor();
   return $rows;
-}
+} */
 
 function getContactById($contact_id){
   $db = herokuConnect();
