@@ -63,37 +63,35 @@ CREATE TABLE customer_addresses (
 CREATE TABLE quote_requests (
     request_id  INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     request_date    TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    request_customer_info   TEXT NOT NULL,
+    customer_id INT REFERENCES customers(customer_id),
+    contact_id INT REFERENCES customer_contacts(contact_id),
     request_details TEXT NOT NULL,
+    request_complete    BOOLEAN NOT NULL DEFAULT FALSE,
     request_delivery_date   DATE NOT NULL CHECK(request_delivery_date > request_date)
 );
 
 CREATE TABLE quotes (
     quote_id    INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     quote_date  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    quote_prefix    VARCHAR(10) NOT NULL,
-    quote_no    VARCHAR(10) NOT NULL,
     customer_id INT REFERENCES customers(customer_id),
     contact_id INT REFERENCES customer_contacts(contact_id),
     quote_subtotal    NUMERIC NOT NULL CHECK(quote_subtotal > 0),
     quote_taxes   NUMERIC NOT NULL CHECK(quote_taxes >= 0),
     quote_total NUMERIC NOT NULL,
-    purchase_status INT DEFAULT 0 REFERENCES purchase_status(status_id)
+    quores_complete BOOLEAN NOT NULL DEFAULT FALSE
 );
 
 CREATE TABLE invoices (
     invoice_id   INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     invoice_date    TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    invoice_prefix  VARCHAR(10) NOT NULL,
-    invoice_no  VARCHAR(10) NOT NULL,
     quote_id    INT REFERENCES quotes(quote_id),
     customer_id INT REFERENCES customers(customer_id),
     contact_id INT REFERENCES customer_contacts(contact_id),
     invoice_subtotal    NUMERIC NOT NULL CHECK(invoice_subtotal > 0),
     invoice_taxes   NUMERIC NOT NULL CHECK(invoice_taxes >= 0),
     invoice_total NUMERIC NOT NULL,
-    delivery_status INT DEFAULT 0 REFERENCES delivery_status(status_id),
-    payment_status INT DEFAULT 0 REFERENCES payment_status(status_id),
+    delivery_complete BOOLEAN NOT NULL DEFAULT FALSE,
+    payment_complete BOOLEAN NOT NULL DEFAULT FALSE,
     invoice_comments TEXT DEFAULT NULL
 );
 
@@ -104,7 +102,7 @@ CREATE TABLE sales_orders (
     customer_id INT REFERENCES customers(customer_id),
     contact_id INT REFERENCES customer_contacts(contact_id),
     shipping_address_id INT REFERENCES customer_addresses(address_id),
-    delivery_status INT DEFAULT 0 REFERENCES delivery_status(status_id),
+    delivery_complete BOOLEAN NOT NULL DEFAULT FALSE,
     shipping_company1_id INT DEFAULT NULL REFERENCES shipping_companies(shipping_company_id),
     track_no_sc1    TEXT DEFAULT NULL,
     shipping_company2_id INT DEFAULT NULL REFERENCES shipping_companies(shipping_company_id),
@@ -115,7 +113,7 @@ CREATE TABLE sales_orders (
     sales_order_comments TEXT DEFAULT NULL
 );
 
-CREATE TABLE financial_operations(
+CREATE TABLE financial_operations (
     financial_operation_id  INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     financial_operation_date    TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     invoice_id  INT NOT NULL REFERENCES invoices(invoice_id) ON DELETE CASCADE,
@@ -124,12 +122,7 @@ CREATE TABLE financial_operations(
     invoice_subtotal    NUMERIC NOT NULL CHECK(invoice_subtotal > 0),
     invoice_taxes   NUMERIC NOT NULL CHECK(invoice_taxes >= 0),
     invoice_total NUMERIC NOT NULL,
-    payment_status INT DEFAULT 0 REFERENCES payment_status(status_id),
-    payment_date1   DATE DEFAULT NULL,
-    payment_amount1 NUMERIC DEFAULT NULL,
-    payment_date2   DATE DEFAULT NULL,
-    payment_amount2 NUMERIC DEFAULT NULL,
-    payment_date3   DATE DEFAULT NULL,
-    payment_amount3 NUMERIC DEFAULT NULL
+    payment_complete BOOLEAN NOT NULL DEFAULT FALSE,
+    payment_amount NUMERIC DEFAULT NULL
 );
 

@@ -40,17 +40,6 @@ function getAddressesByBoolean($filtervalue){
   return $rows;
 }
 
-/* function getAddressDetails($address_id){
-  $db = herokuConnect();
-  $sql = "SELECT address_id, address_name, address_taxid, address_phone, address_email FROM addresses WHERE address_id = :address_id";
-  $stmt = $db->prepare($sql);
-  $stmt->bindValue(':address_id', $address_id, PDO::PARAM_INT);
-  $stmt->execute();
-  $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-  $stmt->closeCursor();
-  return $rows;
-} */
-
 function getAddressById($address_id){
   $db = herokuConnect();
   $sql = "SELECT ca.address_id, c.customer_id, c.customer_name, ca.customer_address, 
