@@ -150,7 +150,7 @@ switch ($action) {
         if (count($addresses) > 0) {
             $addressesList = addressesBuilder($addresses);
         } else {
-            $message = '<p class="bg-danger">Sorry, no addresses were found.</p>';
+            $message = '>Sorry, no addresses were found.';
         }
         include '../view/sf-addresses.php';
         break;
