@@ -67,7 +67,7 @@ CREATE TABLE quote_requests (
     contact_id INT REFERENCES customer_contacts(contact_id),
     request_details TEXT NOT NULL,
     request_complete    BOOLEAN NOT NULL DEFAULT FALSE,
-    request_delivery_date   DATE NOT NULL CHECK(request_delivery_date > request_date)
+    request_delivery_date   DATE NOT NULL
 );
 
 CREATE TABLE quotes (

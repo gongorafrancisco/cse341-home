@@ -81,4 +81,16 @@ function deleteContact($contact_id) {
   return $rowsChanged;
 }
 
+function getContactsByCompany($customer_id){
+  $db = herokuConnect();
+  $sql = "SELECT cc.contact_id, cc.contact_name FROM customer_contacts AS cc 
+  LEFT JOIN customers AS c ON c.customer_id = cc.customer_id
+  WHERE c.customer_id = :customer_id";
+  $stmt = $db->prepare($sql);
+  $stmt->bindValue(':customer_id', $customer_id, PDO::PARAM_INT);
+  $stmt->execute();
+  $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  $stmt->closeCursor();
+  return $rows;
+}
 ?>

@@ -22,6 +22,23 @@ if ($action == NULL) {
 $searchOptions = array("No.", "Name", "Company" ,"Department", "Phone", "Email");
 
 switch ($action) {
+    case 'filterContacts':
+                // Prevent caching.
+                header('Cache-Control: no-cache, must-revalidate');
+                header('Expires: Mon, 01 Jan 1996 00:00:00 GMT');
+        
+                // The JSON standard MIME header.
+                header('Content-type: application/json');
+        
+                $customer_id = filter_input(INPUT_GET, 'customerNo', FILTER_VALIDATE_INT);
+                $customerInfo = getContactsByCompany($customer_id);
+                if (count($customerInfo) < 1) {
+                    $message = "<Sorry, customer was not found.";
+                }                
+        
+                // Send the data.
+                echo json_encode($customerInfo);
+    break;
      case 'confirmDeletion':
         $contact_id = filter_input(INPUT_POST, 'contactNo', FILTER_VALIDATE_INT);
         $contact_name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
@@ -61,7 +78,6 @@ switch ($action) {
 
         $insertOutcome = insertContact($customer_id, $contact_name, $contact_department, $contact_phone, $contact_email);
 
-        // Check and report the result
         if ($insertOutcome === 1) {
             $message = "Contact <strong>" . $contact_name . "</strong> was successfully added.";
             include '../view/sf-contacts-add.php';

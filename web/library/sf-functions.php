@@ -1,9 +1,9 @@
 <?php
 function customersBuilder($customers){
-    $list = "<table class='table'>
+    $list = "<table class='table text-center'>
                                 <thead class='thead-light'>
                                     <tr>
-                                        <th scope='col'>Name</th>
+                                        <th class='text-left' scope='col'>Name</th>
                                         <th>Tax ID</th>
                                         <th>Phone</th>
                                         <th>Email</th>
@@ -14,7 +14,7 @@ function customersBuilder($customers){
                                 <tbody>";
             foreach ($customers as $customer) {
                 $list .= "<tr>
-                                        <th scope='row'>" . $customer['customer_name'] . "</th>
+                                        <th class='text-left' scope='row'>" . $customer['customer_name'] . "</th>
                                         <td>" . $customer['customer_taxid'] . "</td>
                                         <td>" . $customer['customer_phone'] . "</td>
                                         <td>" . $customer['customer_email'] . "</td>
@@ -95,10 +95,10 @@ function selectCustomersElementDelete($customers, $selection){
 }
 
 function contactsBuilder($contacts) {
-    $list = "<table class='table'>
+    $list = "<table class='table text-center'>
                                 <thead class='thead-light'>
                                     <tr>
-                                        <th scope='col'>Name</th>
+                                        <th class='text-left' scope='col'>Name</th>
                                         <th>Company</th>
                                         <th>Department</th>
                                         <th>Phone</th>
@@ -109,7 +109,7 @@ function contactsBuilder($contacts) {
                                 <tbody>";
             foreach ($contacts as $contact) {
                 $list .= "<tr>
-                                        <th scope='row'>" . $contact['contact_name'] . "</th>
+                                        <th class='text-left' scope='row'>" . $contact['contact_name'] . "</th>
                                         <td>" . $contact['customer_name'] . "</td>
                                         <td>" . $contact['contact_department'] . "</td>
                                         <td>" . $contact['contact_phone'] . "</td>
@@ -139,10 +139,10 @@ function selectSearchElement($options, $selection) {
 }
 
 function addressesBuilder($addresses) {
-    $table = "<table class='table'>
+    $table = "<table class='table text-center'>
                                 <thead class='thead-light'>
                                     <tr>
-                                        <th scope='col'>No.</th>
+                                        <th class='text-left' scope='col'>No.</th>
                                         <th>Company</th>
                                         <th>Address</th>
                                         <th>Shipping Address</th>
@@ -152,7 +152,7 @@ function addressesBuilder($addresses) {
                                 <tbody>";
             foreach ($addresses as $address) {
                 $table .= "<tr>
-                                        <th scope='row'>" . $address['address_id'] . "</th>
+                                        <th class='text-left' scope='row'>" . $address['address_id'] . "</th>
                                         <td>" . $address['customer_name'] . "</td>
                                         <td>" . $address['customer_address'] . "</td>
                                         <td>" . $address['shipping_address'] . "</td>
@@ -195,4 +195,38 @@ function shippingAddressDelete($array, $selection){
     return $element;
 }
 
+function requestsBuilder($requests){
+    $table = "<table class='table text-center'>
+                                <thead class='thead-light'>
+                                    <tr>
+                                        <th scope='col'>No.</th>
+                                        <th>Date of Request</th>
+                                        <th>Company</th>
+                                        <th>Contact</th>
+                                        <th>Details</th>
+                                        <th>Due Date</th>
+                                        <th>Completed</th>
+                                        <th> Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>";
+            foreach ($requests as $request) {
+                $table .= "<tr>
+                                        <th scope='row'>" . $request['request_id'] . "</th>
+                                        <td>" . parse_timestamp($request['request_date']) . "</td>
+                                        <td>" . $request['customer_name'] . "</td>
+                                        <td>" . $request['contact_name'] . "</td>
+                                        <td><a href='../sf-customers/index.php?action=details&customerNo=".$request['request_id']."' class='link text-info'>Details</a></td>
+                                        <td>" . $request['request_delivery_date'] . "</td>
+                                        <td>" . $request['request_complete'] . "</td>
+                                        <td><a href='../sf-customers/index.php?action=modify&customerNo=".$request['request_id']."' class='btn btn-primary'>Modify</a><a href='../sf-customers/index.php?action=delete&customerNo=".$request['request_id']."' class='ml-3 btn btn-danger'>Delete</a></td>
+                                    </tr>";
+            }
+            $table .= "</tbody></table>";
+            return $table;
+}
+
+function parse_timestamp($timestamp, $format = 'd-m-Y h:i:s a'){
+    return date($format, strtotime($timestamp));
+}
 ?>
