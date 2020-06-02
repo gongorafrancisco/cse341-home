@@ -41,7 +41,7 @@ switch ($action) {
         $customer_id = filter_input(INPUT_GET, 'customerNo', FILTER_VALIDATE_INT);
         $customerInfo = getCustomerById($customer_id);
         if (count($customerInfo) < 1) {
-            $message = "<Sorry, customer was not found.";
+            $message = "Sorry, customer was not found.";
         }
         include '../view/sf-customer-delete.php';
         break;
@@ -168,7 +168,7 @@ switch ($action) {
         if (count($customers) > 0) {
             $customersList = customersBuilder($customers);
         } else {
-            $message = '<p class="bg-danger">Sorry, no customers were found.</p>';
+            $message = 'Sorry, no customers were found.';
         }
         include '../view/sf-customers.php';
         break;

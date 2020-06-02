@@ -33,7 +33,7 @@ switch ($action) {
                 $customer_id = filter_input(INPUT_GET, 'customerNo', FILTER_VALIDATE_INT);
                 $customerInfo = getContactsByCompany($customer_id);
                 if (count($customerInfo) < 1) {
-                    $message = "<Sorry, customer was not found.";
+                    $message = "Sorry, no contacts were found.";
                 }                
         
                 // Send the data.
@@ -59,7 +59,7 @@ switch ($action) {
         $contact_id = filter_input(INPUT_GET, 'contactNo', FILTER_VALIDATE_INT);
         $contactInfo = getContactById($contact_id);
         if (count($contactInfo) < 1) {
-            $message = "<Sorry, contact was not found.";
+            $message = "Sorry, contact was not found.";
         }
         include '../view/sf-contact-delete.php';
         break;
@@ -193,7 +193,7 @@ switch ($action) {
         if (count($contacts) > 0) {
             $contactsList = contactsBuilder($contacts);
         } else {
-            $message = '<p class="bg-danger">Sorry, no contacts were found.</p>';
+            $message = 'Sorry, no contacts were found.';
         }
         include '../view/sf-contacts.php';
         break;
