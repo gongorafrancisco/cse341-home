@@ -2,7 +2,7 @@
             <div class="form-group row">
                 <label for="book" class="col-sm-2 col-form-label">Contact Name</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="name" name="name" <?php if(isset($contactInfo['0']['contact_name'])){ echo "value='".$contactInfo['0']['contact_name']."'";}?> aria-describedby="nameHelp" maxlength="50" required>
+                    <input type="text" class="form-control" id="name" name="name" <?php if(isset($contactInfo['0']['contact_name'])){ echo "value='".$contactInfo['0']['contact_name']."'";}?> aria-describedby="nameHelp" maxlength="50" required autofocus>
                     <small id="nameHelp" class="form-text text-muted">e.g. John Harris</small>
                 </div>
             </div>

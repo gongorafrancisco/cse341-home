@@ -2,7 +2,7 @@
             <div class="form-group row">
                 <label for="name" class="col-sm-2 col-form-label">Contact Name</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="name" name="name" aria-describedby="nameHelp" maxlength="50" required>
+                    <input type="text" class="form-control" id="name" name="name" aria-describedby="nameHelp" maxlength="50" required autofocus>
                     <small id="nameHelp" class="form-text text-muted">e.g. John Harris</small>
                 </div>
             </div>

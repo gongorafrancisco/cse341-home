@@ -3,12 +3,11 @@
 -- local password = Spring2020
 CREATE TABLE team_users (
     member_id  INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    member_username    VARCHAR(15) NOT NULL,
     member_email   VARCHAR(40) NOT NULL,
     member_name   VARCHAR(40) NOT NULL,
     member_lastname   VARCHAR(40) NOT NULL,
     member_password    VARCHAR(255) NOT NULL,
-    UNIQUE (member_username, member_email)
+    UNIQUE (member_email)
 );
 
 CREATE TABLE payment_status (

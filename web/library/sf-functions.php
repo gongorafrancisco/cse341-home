@@ -1,4 +1,18 @@
 <?php
+
+function checkEmail($email) {
+  $validEmail = filter_var($email, FILTER_VALIDATE_EMAIL);
+  return $validEmail;
+}
+
+function checkPassword($password) {
+    // Check the password for a minimum of 7 characters,
+    // at least one 1 capital letter, at least 1 number and
+    // at least 1 special character
+  $pattern = '/^(?=.*[[:digit:]])(?=.*[[:punct:]])(?=.*[A-Z])(?=.*[a-z])([^\s]){7,}$/';
+  return preg_match($pattern, $password);
+}
+
 function customersBuilder($customers){
     $list = "<table class='table text-center'>
                                 <thead class='thead-light'>
@@ -53,7 +67,7 @@ function generalInfoBuilder($customerInfo) {
 }
 
 function selectCustomersElement($customers){
-    $element = "<select class='form-control' name='customerNo' id='customerNo' required>";
+    $element = "<select class='form-control' name='customerNo' id='customerNo' required autofocus>";
     $element .= "<option>Choose a Company</option>";
     foreach ($customers as $customer) {
         $element .= "<option value='".$customer['customer_id']."'>".$customer['customer_name']."</option>";
@@ -63,7 +77,7 @@ function selectCustomersElement($customers){
 }
 
 function selectCustomersElementModify($customers, $selection){
-    $element = "<select class='form-control' name='customerNo' id='customerNo' required>";
+    $element = "<select class='form-control' name='customerNo' id='customerNo' required autofocus>";
     $element .= "<option>Choose a Company</option>";
     foreach ($customers as $customer) {
         $element .= "<option value='".$customer['customer_id']."'";
