@@ -193,7 +193,8 @@ switch ($action) {
             header("Location: /salesfu");
             die();
         } */
-       $contacts = getContacts();
+        $optionSelected = "";
+        $contacts = getContacts();
         if (count($contacts) > 0) {
             $contactsList = contactsBuilder($contacts);
         } else {

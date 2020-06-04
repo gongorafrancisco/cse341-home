@@ -150,7 +150,8 @@ switch ($action) {
             header("Location: /salesfu");
             die();
         } */
-       $addresses = getAddresses();
+        $optionSelected = "";
+        $addresses = getAddresses();
         if (count($addresses) > 0) {
             $addressesList = addressesBuilder($addresses);
         } else {

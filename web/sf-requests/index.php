@@ -173,6 +173,7 @@ switch ($action) {
             header("Location: /salesfu");
             die();
         } */
+        $optionSelected = "";
         $requests = getRequests();
         if (count($requests) > 0) {
             $requestsList = requestsBuilder($requests);
