@@ -168,6 +168,7 @@ switch ($action) {
             header("Location: /salesfu");
     	    die();
         } */
+        $optionSelected = "";
         $customers = getCustomers();
         if (count($customers) > 0) {
             $customersList = customersBuilder($customers);
