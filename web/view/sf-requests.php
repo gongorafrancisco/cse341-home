@@ -1,8 +1,8 @@
 <?php
-if (!isset($_SESSION['member_name'])) { 
+/* if (!isset($_SESSION['member_name'])) { 
     header("Location: /salesfu");
     die();
-}
+} */
 if (isset($_SESSION['message'])) {$message = $_SESSION['message'];}
 $optionsList = selectSearchElement($searchOptions, $optionSelected);
 ?>

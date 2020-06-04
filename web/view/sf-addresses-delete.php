@@ -1,8 +1,8 @@
 <?php
-if (!isset($_SESSION['member_name'])) { 
+/* if (!isset($_SESSION['member_name'])) { 
     header("Location: /salesfu");
     die();
-}
+} */
 $customers = getCustomers();
 $customersList = selectCustomersElementDelete($customers, $addressInfo['0']['customer_id']);
 $shippingBoolean = shippingAddressDelete($booleanOptions, $addressInfo['0']['shipping_address']);
