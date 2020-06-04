@@ -1,4 +1,4 @@
-<form class="col-10 my-5 mx-auto" action="../sf-contacts/index.php" method="post">
+<form class="col-10 my-5 mx-auto" action="../sf-contacts/?" method="post">
             <div class="form-group row">
                 <label for="name" class="col-sm-2 col-form-label">Contact Name</label>
                 <div class="col-sm-10">

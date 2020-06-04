@@ -13,7 +13,7 @@
     <div class="col-3 text-center my-5 mx-auto">
         <h4 class="text-muted">Please sing in</h4>
         <?php if (isset($message)) {echo "<div class='alert alert-info' role='alert'>".$message."</div>"; unset($message);}?>
-        <form class="form-signin" action="../salesfu/index.php" method="post">
+        <form class="form-signin" action="../salesfu/?" method="post">
             <div class="my-3">
                 <label for="inputEmail" class="sr-only">Email address</label>
                 <input type="email" id="inputEmail" class="form-control" placeholder="Email address" name="email" required autofocus>
