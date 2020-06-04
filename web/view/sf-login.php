@@ -1,3 +1,4 @@
+<?php if (isset($_SESSION['message'])) {$message = $_SESSION['message'];} ?>
 <!doctype html>
 <html lang="en-US">
 
@@ -10,8 +11,8 @@
 <body class="d-flex flex-column justify-content-center">
     <h1 class="text-center my-3">Sales Follow UP</h1>
     <div class="col-3 text-center my-5 mx-auto">
-
-        <h4>Please sing in</h4>
+        <h4 class="text-muted">Please sing in</h4>
+        <?php if (isset($message)) {echo "<div class='alert alert-info' role='alert'>".$message."</div>"; unset($message);}?>
         <form class="form-signin" action="../salesfu" method="post">
             <div class="my-3">
                 <label for="inputEmail" class="sr-only">Email address</label>
@@ -36,3 +37,4 @@
 </body>
 
 </html>
+<?php unset($_SESSION['message']); ?>

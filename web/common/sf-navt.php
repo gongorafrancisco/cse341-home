@@ -1,17 +1,9 @@
-<div class="container-fluid bg-dark p-3">
-    <div class="row">
-
-        <div class="col-sm text-light">
-
-            <a href="../salesfu">Sales FU | Dashboard</a>
+<div class="d-flex justify-content-between bg-dark p-3">
+        <div>
+            <a href="../salesfu/?action=dashboard">Sales FU | Dashboard</a>
         </div>
-
-        <div class="col-sm text-light text-center">
-            Seach Bar Place holder
+        <div>
+            <?php if(isset($_SESSION['member_name'])){ echo "<span class='text-light mr-3'>Welcome ".$_SESSION['member_name']."</span>"; } ?>
+            <a class="text-primary mr-1" href="../salesfu/?action=logout">Sing out</a>
         </div>
-        <div class="col-sm text-light text-right">
-            <a href="/" class="mr-3">Back to home</a>
-            <a href="#" class="mr-2">Signout</a>
-        </div>
-    </div>
 </div>

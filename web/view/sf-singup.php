@@ -7,10 +7,13 @@
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/head.php'; ?>
 </head>
 
-<body class="d-flex flex-column justify-content-center">
-    <h1 class="text-center text-muted mt-5">Sales Follow UP</h1>
-    <p class="h1 text-center"> Sign Up</p>
+<body>
+    <main class="d-flex flex-column justify-content-center">
+        <h1 class="text-center mt-5">Sales Follow UP</h1>
+    <p class="h1 text-center text-muted"> Sign Up</p>
+
     <div class="col-6 my-5 mx-auto">
+        <?php if (isset($message)) {echo "<div class='alert alert-info' role='alert'>".$message."</div>";}?>
         <form class="col-10 mx-auto" action="../salesfu" method="post">
             <div class="form-group row">
                 <label for="name" class="col-sm-2 col-form-label">Name</label>
@@ -50,10 +53,12 @@
             <div class="col my-2 mx-auto p-0">
                 <button type="submit" class="w-100 btn btn-primary">Register</button>
                 <input type="hidden" name="action" value="insertTM">
+                <p class="text-muted text-center m-2">Have an account? <a href="../salesfu/" class="text-dark">Sing in</a></p>
             </div>
 
         </form>
     </div>
+    </main>
     <script src="../js/jquery-3.5.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
