@@ -3,7 +3,7 @@ if (!isset($_SESSION['member_name'])) {
     header("Location: /salesfu");
     die();
 }
-$optionsList = selectSearchElement($searchOptions, $optionSelected);
+$contactsOptionsList = selectSearchElement($searchOptions, $optionSelected);
 ?>
 <!doctype html>
 <html lang="en-US">
@@ -20,7 +20,7 @@ $optionsList = selectSearchElement($searchOptions, $optionSelected);
         <div class="row h-100">
         <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-navl.php'; ?>
             <div class="col h-100 py-4 px-3">
-                <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-contactsFilter-form.php'; ?>
+                <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-searchBox.php'; ?>
                 <?php if (isset($message)){echo "<div class='col mt-2 mx-auto alert alert-info' role='alert'>".$message."</div>";}?>
                     <div class="h-100 my-4 overflow-auto">
                         <?php if (isset($contactsFiltered)){echo $contactsFiltered;}?>
@@ -31,7 +31,7 @@ $optionsList = selectSearchElement($searchOptions, $optionSelected);
     <script src="../js/jquery-3.5.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src="../js/scripts.js"></script>
+    <script src="../js/scripts-contacts.js"></script>
 </body>
 
 </html>

@@ -137,7 +137,7 @@ function contactsBuilder($contacts) {
 
 function selectSearchElement($options, $selection) {
     
-    $element = "<select class='form-control' name='filter_option' id='inlineFormInputGroup' required>";
+    $element = "<select class='form-control' name='filter_option' id='select_options' required>";
     $element .= "<option value=''>Select a filter</option>";
     foreach ($options as $key => $option){
         $element .= "<option value='".$key."'";

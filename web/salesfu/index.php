@@ -108,7 +108,6 @@ switch ($action) {
         break;
         
     default:
-        $_SESSION['message'] = "Message is working";
         include '../view/sf-login.php';
         break;
 }

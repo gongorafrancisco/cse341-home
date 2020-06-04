@@ -21,7 +21,7 @@ if ($action == NULL) {
     $action = filter_input(INPUT_GET, 'action');
 }
 
-$searchOptions = array("No.", "Name", "Company" ,"Department", "Phone", "Email");
+$searchOptions = array("No.", "Request Date", "Company", "Contact", "Details", "Completed", "Delivery Date");
 
 switch ($action) {
 /*     case 'confirmDeletion':
@@ -169,10 +169,10 @@ switch ($action) {
         break; */
 
     default:
-/*         if (!isset($_SESSION['member_name'])) { 
+        if (!isset($_SESSION['member_name'])) { 
             header("Location: /salesfu");
             die();
-        } */
+        }
         $optionSelected = "";
         $requests = getRequests();
         if (count($requests) > 0) {
