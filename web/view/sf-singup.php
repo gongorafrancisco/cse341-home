@@ -14,7 +14,7 @@
 
     <div class="col-6 my-5 mx-auto">
         <?php if (isset($message)) {echo "<div class='alert alert-info' role='alert'>".$message."</div>";}?>
-        <form class="col-10 mx-auto" action="../salesfu" method="post">
+        <form class="col-10 mx-auto" action="../salesfu/index.php" method="post">
             <div class="form-group row">
                 <label for="name" class="col-sm-2 col-form-label">Name</label>
                 <div class="col-sm-10">
