@@ -1,4 +1,8 @@
 <?php
+if (!isset($_SESSION['member_name'])) { 
+    header("Location: /salesfu");
+    die();
+}
 $optionsList = selectSearchElement($searchOptions, $optionSelected);
 ?>
 <!doctype html>

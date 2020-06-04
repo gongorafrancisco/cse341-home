@@ -1,4 +1,8 @@
 <?php
+if (!isset($_SESSION['member_name'])) { 
+    header("Location: /salesfu");
+    die();
+}
 $customers = getCustomers();
 $customersList = selectCustomersElement($customers);
 ?>

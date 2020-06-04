@@ -1,4 +1,8 @@
 <?php
+if (!isset($_SESSION['member_name'])) { 
+    header("Location: /salesfu");
+    die();
+}
 $customers = getCustomers();
 $customersList = selectCustomersElementModify($customers, $addressInfo['0']['customer_id']);
 $shippingBoolean = shippingAddressModify($booleanOptions, $addressInfo['0']['shipping_address']);
