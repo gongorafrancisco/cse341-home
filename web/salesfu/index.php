@@ -20,7 +20,7 @@ if ($action == NULL) {
 
 
 switch ($action) {
-    /* case 'logout' :
+    case 'logout' :
         unset($_SESSION['member_name']);
         header('Location: /salesfu');
         die();
@@ -105,10 +105,9 @@ switch ($action) {
     
     case 'dashboard':
         include '../view/sf-dashboard.php';
-        break; */
+        break;
         
     default:
-    include '../view/sf-dashboard.php';
-        //include '../view/sf-login.php';
+        include '../view/sf-login.php';
         break;
 }
