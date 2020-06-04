@@ -1,4 +1,4 @@
-<form class="col-10 my-5 mx-auto" action="../sf-addresses/index.php" method="post">
+<form class="col-10 my-5 mx-auto" action="../sf-addresses/?" method="post">
 
             <div class="form-group row">
                 <label for="customerNo" class="col-sm-2 col-form-label">Company</label>

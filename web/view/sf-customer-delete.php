@@ -1,8 +1,8 @@
 <?php
-/* if (!isset($_SESSION['member_name'])) { 
+if (!isset($_SESSION['member_name'])) { 
     header("Location: /salesfu");
     die();
-} */
+}
 ?>
 <!doctype html>
 <html lang="en-US">
@@ -22,7 +22,7 @@
                 <h3 class="h3 text-center"><?php if(isset($customerInfo['0']['customer_name'])){ echo "Confirm Customer ".$customerInfo['0']['customer_name']." Deletion";}?></h3>
                 <div class="col-10 mt-5 mx-auto alert alert-danger" role="alert">
                     All contacts and addresses will be removed by deleting a customer. This change is permanent.
-                    <a class="alert-link mx-2" href="<?php if(isset($customerInfo['0']['customer_id'])){ echo "../sf-customers/index.php?action=modify&customerNo=".$customerInfo['0']['customer_id'];}?>">Modify instead</a><a class="alert-link mx-2" href="../sf-customers">Cancel</a>
+                    <a class="alert-link mx-2" href="<?php if(isset($customerInfo['0']['customer_id'])){ echo "../sf-customers/?action=modify&customerNo=".$customerInfo['0']['customer_id'];}?>">Modify instead</a><a class="alert-link mx-2" href="../sf-customers">Cancel</a>
                 </div>
                 <?php if (isset($message)){echo "<div class='col-10 mt-2 mx-auto alert alert-info' role='alert'>".$message."</div>";}?>
                 <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-customersDel-form.php'; ?> 

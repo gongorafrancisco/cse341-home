@@ -1,8 +1,8 @@
 <?php
-/* if (!isset($_SESSION['member_name'])) { 
+if (!isset($_SESSION['member_name'])) { 
     header("Location: /salesfu");
     die();
-} */
+}
 $customers = getCustomers();
 $customersList = selectCustomersElementDelete($customers, $contactInfo['0']['customer_id']);
 ?>
@@ -24,7 +24,7 @@ $customersList = selectCustomersElementDelete($customers, $contactInfo['0']['cus
                 <h3 class="h3 text-center"><?php if(isset($contactInfo['0']['contact_name'])){ echo "Confirm Contact ".$contactInfo['0']['contact_name']." Deletion";}?></h3>
                 <div class="col-10 mt-5 mx-auto alert alert-danger" role="alert">
                     This change is permanent.
-                    <a class="alert-link mx-2" href="<?php if(isset($contactInfo['0']['contact_id'])){ echo "../sf-contacts/index.php?action=modify&contactNo=".$contactInfo['0']['contact_id'];}?>">Modify instead</a><a class="alert-link mx-2" href="../sf-contacts">Cancel</a>
+                    <a class="alert-link mx-2" href="<?php if(isset($contactInfo['0']['contact_id'])){ echo "../sf-contacts/?action=modify&contactNo=".$contactInfo['0']['contact_id'];}?>">Modify instead</a><a class="alert-link mx-2" href="../sf-contacts">Cancel</a>
                 </div>
                 <?php if (isset($message)){echo "<div class='col-10 mt-2 mx-auto alert alert-info' role='alert'>".$message."</div>";}?>
                 <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-contactsDel-form.php'; ?> 

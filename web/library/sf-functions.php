@@ -32,8 +32,8 @@ function customersBuilder($customers){
                                         <td>" . $customer['customer_taxid'] . "</td>
                                         <td>" . $customer['customer_phone'] . "</td>
                                         <td>" . $customer['customer_email'] . "</td>
-                                        <td><a href='../sf-customers/index.php?action=details&customerNo=".$customer['customer_id']."' class='link text-info'>Details</a></td>
-                                        <td><a href='../sf-customers/index.php?action=modify&customerNo=".$customer['customer_id']."' class='btn btn-primary'>Modify</a><a href='../sf-customers/index.php?action=delete&customerNo=".$customer['customer_id']."' class='ml-3 btn btn-danger'>Delete</a></td>
+                                        <td><a href='../sf-customers/?action=details&customerNo=".$customer['customer_id']."' class='link text-info'>Details</a></td>
+                                        <td><a href='../sf-customers/?action=modify&customerNo=".$customer['customer_id']."' class='btn btn-primary'>Modify</a><a href='../sf-customers/?action=delete&customerNo=".$customer['customer_id']."' class='ml-3 btn btn-danger'>Delete</a></td>
                                     </tr>";
             }
             $list .= "</tbody></table>";
@@ -128,7 +128,7 @@ function contactsBuilder($contacts) {
                                         <td>" . $contact['contact_department'] . "</td>
                                         <td>" . $contact['contact_phone'] . "</td>
                                         <td>" . $contact['contact_email'] . "</td>
-                                        <td><a href='../sf-contacts/index.php?action=modify&contactNo=".$contact['contact_id']."' class='btn btn-primary'>Modify</a><a href='../sf-contacts/index.php?action=delete&contactNo=".$contact['contact_id']."' class='ml-3 btn btn-danger'>Delete</a></td>
+                                        <td><a href='../sf-contacts/?action=modify&contactNo=".$contact['contact_id']."' class='btn btn-primary'>Modify</a><a href='../sf-contacts/?action=delete&contactNo=".$contact['contact_id']."' class='ml-3 btn btn-danger'>Delete</a></td>
                                     </tr>";
             }
             $list .= "</tbody></table>";
@@ -170,7 +170,7 @@ function addressesBuilder($addresses) {
                                         <td>" . $address['customer_name'] . "</td>
                                         <td>" . $address['customer_address'] . "</td>
                                         <td>" . $address['shipping_address'] . "</td>
-                                        <td><a href='../sf-addresses/index.php?action=modify&addressNo=".$address['address_id']."' class='btn btn-primary'>Modify</a><a href='../sf-addresses/index.php?action=delete&addressNo=".$address['address_id']."' class='ml-3 btn btn-danger'>Delete</a></td>
+                                        <td><a href='../sf-addresses/?action=modify&addressNo=".$address['address_id']."' class='btn btn-primary'>Modify</a><a href='../sf-addresses/?action=delete&addressNo=".$address['address_id']."' class='ml-3 btn btn-danger'>Delete</a></td>
                                     </tr>";
             }
             $table .= "</tbody></table>";
@@ -230,10 +230,10 @@ function requestsBuilder($requests){
                                         <td>" . parse_timestamp($request['request_date']) . "</td>
                                         <td>" . $request['customer_name'] . "</td>
                                         <td>" . $request['contact_name'] . "</td>
-                                        <td><a href='../sf-customers/index.php?action=details&customerNo=".$request['request_id']."' class='link text-info'>Details</a></td>
+                                        <td><a href='../sf-customers/?action=details&customerNo=".$request['request_id']."' class='link text-info'>Details</a></td>
                                         <td>" . $request['request_delivery_date'] . "</td>
                                         <td>" . $request['request_complete'] . "</td>
-                                        <td><a href='../sf-customers/index.php?action=modify&customerNo=".$request['request_id']."' class='btn btn-primary'>Modify</a><a href='../sf-customers/index.php?action=delete&customerNo=".$request['request_id']."' class='ml-3 btn btn-danger'>Delete</a></td>
+                                        <td><a href='../sf-customers/?action=modify&customerNo=".$request['request_id']."' class='btn btn-primary'>Modify</a><a href='../sf-customers/?action=delete&customerNo=".$request['request_id']."' class='ml-3 btn btn-danger'>Delete</a></td>
                                     </tr>";
             }
             $table .= "</tbody></table>";

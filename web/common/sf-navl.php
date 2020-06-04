@@ -5,11 +5,11 @@
                     </button>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="../sf-customers">View All</a>
-                        <a class="dropdown-item" href="../sf-customers/index.php?action=create">Add Customer</a>
+                        <a class="dropdown-item" href="../sf-customers/?action=create">Add Customer</a>
                         <a class="dropdown-item" href="../sf-contacts">View Contacts</a>
-                        <a class="dropdown-item" href="../sf-contacts/index.php?action=create">Add Contact</a>
+                        <a class="dropdown-item" href="../sf-contacts/?action=create">Add Contact</a>
                         <a class="dropdown-item" href="../sf-addresses">View Addresses</a>
-                        <a class="dropdown-item" href="../sf-addresses/index.php?action=create">Add Addresses</a>
+                        <a class="dropdown-item" href="../sf-addresses/?action=create">Add Addresses</a>
                     </div>
                 </div>
             
@@ -19,7 +19,7 @@
                     </button>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="../sf-requests">View All</a>
-                        <a class="dropdown-item" href="../sf-requests/index.php?action=create">Add Request</a>
+                        <a class="dropdown-item" href="../sf-requests/?action=create">Add Request</a>
                     </div>
                 </div>
 
@@ -29,9 +29,9 @@
                     </button>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="../sf-customers">View All</a>
-                        <a class="dropdown-item" href="../sf-customers/index.php?action=create">Add Customer</a>
+                        <a class="dropdown-item" href="../sf-customers/?action=create">Add Customer</a>
                         <a class="dropdown-item" href="../sf-contacts">View Contacts</a>
-                        <a class="dropdown-item" href="../sf-contacts/index.php?action=create">Add Contact</a>
+                        <a class="dropdown-item" href="../sf-contacts/?action=create">Add Contact</a>
                         <a class="dropdown-item" href="#">View Addresses</a>
                         <a class="dropdown-item" href="#">Add Addresses</a>
                     </div>
@@ -43,9 +43,9 @@
                     </button>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="../sf-customers">View All</a>
-                        <a class="dropdown-item" href="../sf-customers/index.php?action=create">Add Customer</a>
+                        <a class="dropdown-item" href="../sf-customers/?action=create">Add Customer</a>
                         <a class="dropdown-item" href="../sf-contacts">View Contacts</a>
-                        <a class="dropdown-item" href="../sf-contacts/index.php?action=create">Add Contact</a>
+                        <a class="dropdown-item" href="../sf-contacts/?action=create">Add Contact</a>
                         <a class="dropdown-item" href="#">View Addresses</a>
                         <a class="dropdown-item" href="#">Add Addresses</a>
                     </div>
@@ -57,9 +57,9 @@
                     </button>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="../sf-customers">View All</a>
-                        <a class="dropdown-item" href="../sf-customers/index.php?action=create">Add Customer</a>
+                        <a class="dropdown-item" href="../sf-customers/?action=create">Add Customer</a>
                         <a class="dropdown-item" href="../sf-contacts">View Contacts</a>
-                        <a class="dropdown-item" href="../sf-contacts/index.php?action=create">Add Contact</a>
+                        <a class="dropdown-item" href="../sf-contacts/?action=create">Add Contact</a>
                         <a class="dropdown-item" href="#">View Addresses</a>
                         <a class="dropdown-item" href="#">Add Addresses</a>
                     </div>
@@ -71,9 +71,9 @@
                     </button>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="../sf-customers">View All</a>
-                        <a class="dropdown-item" href="../sf-customers/index.php?action=create">Add Customer</a>
+                        <a class="dropdown-item" href="../sf-customers/?action=create">Add Customer</a>
                         <a class="dropdown-item" href="../sf-contacts">View Contacts</a>
-                        <a class="dropdown-item" href="../sf-contacts/index.php?action=create">Add Contact</a>
+                        <a class="dropdown-item" href="../sf-contacts/?action=create">Add Contact</a>
                         <a class="dropdown-item" href="#">View Addresses</a>
                         <a class="dropdown-item" href="#">Add Addresses</a>
                     </div>

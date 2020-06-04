@@ -1,6 +1,6 @@
 <div class="d-flex align-items-center">
     <div>
-    <form class="needs-validation" action="../sf-contacts/index.php" method="get">
+    <form class="needs-validation" action="../sf-contacts/?" method="get">
         <div class="form-row align-items-center">
             <div class="col-auto">
                 <label>Search by</label>

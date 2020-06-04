@@ -1,8 +1,8 @@
 <?php
-/* if (!isset($_SESSION['member_name'])) { 
+if (!isset($_SESSION['member_name'])) { 
     header("Location: /salesfu");
     die();
-} */
+}
 $customers = getCustomers();
 $customersList = selectCustomersElementDelete($customers, $addressInfo['0']['customer_id']);
 $shippingBoolean = shippingAddressDelete($booleanOptions, $addressInfo['0']['shipping_address']);
@@ -25,7 +25,7 @@ $shippingBoolean = shippingAddressDelete($booleanOptions, $addressInfo['0']['shi
                 <h3 class="h3 text-center"><?php if(isset($addressInfo['0']['customer_name'])){ echo "Confirm address deletion for ".$addressInfo['0']['customer_name'];}?></h3>
                 <div class="col-10 mt-5 mx-auto alert alert-danger" role="alert">
                     This change is permanent.
-                    <a class="alert-link mx-2" href="<?php if(isset($addressInfo['0']['address_id'])){ echo "../sf-addresses/index.php?action=modify&addressNo=".$addressInfo['0']['address_id'];}?>">Modify instead</a><a class="alert-link mx-2" href="../sf-addresses">Cancel</a>
+                    <a class="alert-link mx-2" href="<?php if(isset($addressInfo['0']['address_id'])){ echo "../sf-addresses/?action=modify&addressNo=".$addressInfo['0']['address_id'];}?>">Modify instead</a><a class="alert-link mx-2" href="../sf-addresses">Cancel</a>
                 </div>
                 <?php if (isset($message)){echo "<div class='col-10 mt-2 mx-auto alert alert-info' role='alert'>".$message."</div>";}?>
                 <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-addressesDel-form.php'; ?> 
