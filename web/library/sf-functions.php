@@ -240,7 +240,7 @@ function requestsBuilder($requests){
             return $table;
 }
 
-function parse_timestamp($timestamp, $format = 'd-m-Y h:i:s a'){
+function parse_timestamp($timestamp, $format = 'd-m-Y h:i:s a') {
     return date($format, strtotime($timestamp));
 }
 ?>
