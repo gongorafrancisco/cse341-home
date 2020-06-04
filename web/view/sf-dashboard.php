@@ -1,9 +1,9 @@
-<?php 
+<!-- <?php 
     if (!isset($_SESSION['member_name'])) { 
         header("Location: /salesfu");
     	die();
     }
-?>
+?> -->
 <!doctype html>
 <html lang="en-US">
 
