@@ -164,10 +164,10 @@ switch ($action) {
         break;
 
     default:
-        if (!isset($_SESSION['member_name'])) { 
+/*         if (!isset($_SESSION['member_name'])) { 
             header("Location: /salesfu");
     	    die();
-        }
+        } */
         $customers = getCustomers();
         if (count($customers) > 0) {
             $customersList = customersBuilder($customers);

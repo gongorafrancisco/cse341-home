@@ -146,10 +146,10 @@ switch ($action) {
         break;  
 
     default:
-        if (!isset($_SESSION['member_name'])) { 
+/*         if (!isset($_SESSION['member_name'])) { 
             header("Location: /salesfu");
             die();
-        }
+        } */
        $addresses = getAddresses();
         if (count($addresses) > 0) {
             $addressesList = addressesBuilder($addresses);

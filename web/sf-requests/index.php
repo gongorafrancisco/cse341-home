@@ -169,10 +169,10 @@ switch ($action) {
         break; */
 
     default:
-        if (!isset($_SESSION['member_name'])) { 
+/*         if (!isset($_SESSION['member_name'])) { 
             header("Location: /salesfu");
             die();
-        }
+        } */
         $requests = getRequests();
         if (count($requests) > 0) {
             $requestsList = requestsBuilder($requests);
