@@ -47,14 +47,15 @@ function getCustomerById($customer_id){
   return $rows;
 }
 */
-function insertRequest($customer_id, $contact_id, $request_datails, $delivery_date){
+function insertRequest($customer_id, $contact_id, $request_datails, $address_id, $delivery_date){
   $db = herokuConnect();
-  $sql = "INSERT INTO quote_requests (customer_id,contact_id, request_details, request_delivery_date)
-          VALUES (:customer_id, :contact_id, :request_datails, :delivery_date)";
+  $sql = "INSERT INTO quote_requests (customer_id,contact_id, request_details, address_id, request_delivery_date)
+          VALUES (:customer_id, :contact_id, :request_datails, :address_id, :delivery_date)";
   $stmt = $db->prepare($sql);
   $stmt->bindValue(':customer_id', $customer_id, PDO::PARAM_INT);
   $stmt->bindValue(':contact_id', $contact_id, PDO::PARAM_INT);
   $stmt->bindValue(':request_datails', $request_datails, PDO::PARAM_STR);
+  $stmt->bindValue(':address_id', $address_id, PDO::PARAM_INT);
   $stmt->bindValue(':delivery_date', $delivery_date, PDO::PARAM_STR);
   $stmt->execute();
   $rowsChanged = $stmt->rowCount();

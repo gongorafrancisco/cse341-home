@@ -92,4 +92,15 @@ function deleteAddress($address_id) {
   return $rowsChanged;
 }
 
+function geAddressesByCompany($customer_id) {
+  $db = herokuConnect();
+  $sql = "SELECT address_id, customer_address FROM customer_addresses WHERE customer_id = :customer_id AND shipping_address = 'true'";
+  $stmt = $db->prepare($sql);
+  $stmt->bindValue(':customer_id', $customer_id, PDO::PARAM_STR);
+  $stmt->execute();
+  $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  $stmt->closeCursor();
+  return $rows;
+}
+
 ?>

@@ -22,6 +22,24 @@ if ($action == NULL) {
 $searchOptions = array("No.", "Company" ,"Address", "Is Shipping Address");
 $booleanOptions = array("Yes", "No");
 switch ($action) {
+    case 'filterAddresses':
+        // Prevent caching.
+        header('Cache-Control: no-cache, must-revalidate');
+        header('Expires: Mon, 01 Jan 1996 00:00:00 GMT');
+
+        // The JSON standard MIME header.
+        header('Content-type: application/json');
+
+        $customer_id = filter_input(INPUT_GET, 'customerNo', FILTER_VALIDATE_INT);
+        $customerInfo = geAddressesByCompany($customer_id);
+        if (count($customerInfo) < 1) {
+            $message = "Sorry, no contacts were found.";
+        }                
+
+        // Send the data.
+        echo json_encode($customerInfo);
+        break;
+
     case 'confirmDeletion':
         $address_id = filter_input(INPUT_POST, 'addressNo', FILTER_VALIDATE_INT);
         $customer_name = filter_input(INPUT_POST, 'customer', FILTER_SANITIZE_STRING);

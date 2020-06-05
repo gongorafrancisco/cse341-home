@@ -22,10 +22,11 @@
         </div>
     </div>
     <div class="form-group row">
-        <label for="customerNo" class="col-sm-2 col-form-label">Company</label>
+        <label for="addressNo" class="col-sm-2 col-form-label">Company address</label>
         <div class="col-sm-10">
-            <?php if (isset($customersList)) { echo $customersList; } ?>
-            <small id="companyHelp" class="form-text text-muted">e.g. Amazon</small>
+            <select name="addressNo" id="addressNo" class="form-control" required>
+                <option value="">Select an address</option>
+            </select>
         </div>
     </div>
     <div class="form-group row">

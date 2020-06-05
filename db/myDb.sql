@@ -62,9 +62,10 @@ CREATE TABLE customer_addresses (
 CREATE TABLE quote_requests (
     request_id  INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     request_date    TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    customer_id INT REFERENCES customers(customer_id),
+    customer_id INT REFERENCES customers(customer_id) ON DELETE CASCADE,
     contact_id INT REFERENCES customer_contacts(contact_id),
     request_details TEXT NOT NULL,
+    address_id INT REFERENCES customer_addresses(address_id),
     request_complete    BOOLEAN NOT NULL DEFAULT FALSE,
     request_delivery_date   DATE NOT NULL
 );

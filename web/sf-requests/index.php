@@ -53,15 +53,16 @@ switch ($action) {
         $customer_id = filter_input(INPUT_POST, 'customerNo', FILTER_VALIDATE_INT);
         $contact_id = filter_input(INPUT_POST, 'contactNo', FILTER_VALIDATE_INT);
         $request_datails = filter_input(INPUT_POST, 'details', FILTER_SANITIZE_STRING);
+        $address_id = filter_input(INPUT_POST, 'addressNo', FILTER_VALIDATE_INT);
         $delivery_date = filter_input(INPUT_POST, 'dateDelivery', FILTER_SANITIZE_STRING);
 
-        if (empty($customer_id) || empty($contact_id) || empty($request_datails) || empty($delivery_date)) {
+        if (empty($customer_id) || empty($contact_id) || empty($request_datails) || empty($address_id) || empty($delivery_date)) {
             $message = "Please provide information for all empty form fields.";
-            include '../view/sf-customer-add.php';
+            include '../view/sf-request-add.php';
             exit;
         }
 
-        $insertOutcome = insertRequest($customer_id, $contact_id, $request_datails, $delivery_date);
+        $insertOutcome = insertRequest($customer_id, $contact_id, $request_datails, $address_id, $delivery_date);
 
         // Check and report the result
         if ($insertOutcome === 1) {
