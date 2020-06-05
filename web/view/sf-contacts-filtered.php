@@ -4,6 +4,7 @@ if (!isset($_SESSION['member_name'])) {
     die();
 }
 $contactsOptionsList = selectSearchElement($searchOptions, $optionSelected);
+$pageName = "Contacts";
 ?>
 <!doctype html>
 <html lang="en-US">

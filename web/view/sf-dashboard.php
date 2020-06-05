@@ -3,6 +3,7 @@ if (!isset($_SESSION['member_name'])) {
         header("Location: /salesfu");
     	die();
     }
+$pageName = "Dashboard";
 ?> 
 <!doctype html>
 <html lang="en-US">

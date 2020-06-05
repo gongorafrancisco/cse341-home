@@ -3,6 +3,7 @@ if (!isset($_SESSION['member_name'])) {
     header("Location: /salesfu");
     die();
 }
+$pageName = "Quote Requests";
 if (isset($_SESSION['message'])) {$message = $_SESSION['message'];}
 $requestsOptionsList = selectSearchElement($searchOptions, $optionSelected);
 ?>

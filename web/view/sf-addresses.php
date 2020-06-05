@@ -5,6 +5,7 @@ if (!isset($_SESSION['member_name'])) {
 }
 if (isset($_SESSION['message'])) {$message = $_SESSION['message'];}
 $addressesOptionsList = selectSearchElement($searchOptions, $optionSelected);
+$pageName = "Customer Addresses";
 ?>
 <!doctype html>
 <html lang="en-US">

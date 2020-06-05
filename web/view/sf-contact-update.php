@@ -5,6 +5,9 @@ if (!isset($_SESSION['member_name'])) {
 }
 $customers = getCustomers();
 $customersList = selectCustomersElementModify($customers, $contactInfo['0']['customer_id']);
+if(isset($contactInfo['0']['contact_name'])){ 
+    $pageName = "Update Contact ".$contactInfo['0']['contact_name'];
+}
 ?>
 <!doctype html>
 <html lang="en-US">
@@ -21,7 +24,7 @@ $customersList = selectCustomersElementModify($customers, $contactInfo['0']['cus
         <div class="row h-100">
         <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-navl.php'; ?>
             <div class="col h-100 py-4 px-3">
-                <h3 class="h3 text-center"><?php if(isset($contactInfo['0']['contact_name'])){ echo "Update Contact ".$contactInfo['0']['contact_name'];}?></h3>
+                
                 <div class="col-10 mt-5 mx-auto alert alert-info" role="alert">
                     Official Name and Tax ID are required. Phone and Email are Optional.
                     <a class="alert-link mx-3" href="../sf-contacts">Back to Contacts</a>

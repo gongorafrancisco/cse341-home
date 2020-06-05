@@ -4,6 +4,7 @@ if (!isset($_SESSION['member_name'])) {
     die();
 }
 $addressesOptionsList = selectSearchElement($searchOptions, $optionSelected);
+$pageName = "Customer Addresses";
 ?>
 <!doctype html>
 <html lang="en-US">

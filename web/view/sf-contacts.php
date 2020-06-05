@@ -5,6 +5,7 @@ if (!isset($_SESSION['member_name'])) {
 }
 if (isset($_SESSION['message'])) {$message = $_SESSION['message'];}
 $contactsOptionsList = selectSearchElement($searchOptions, $optionSelected);
+$pageName = "Contacts";
 ?>
 <!doctype html>
 <html lang="en-US">

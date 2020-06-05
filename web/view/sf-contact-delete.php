@@ -5,6 +5,9 @@ if (!isset($_SESSION['member_name'])) {
 }
 $customers = getCustomers();
 $customersList = selectCustomersElementDelete($customers, $contactInfo['0']['customer_id']);
+if(isset($contactInfo['0']['contact_name'])){ 
+    $pageName = "Confirm Contact ".$contactInfo['0']['contact_name']." Deletion";
+}
 ?>
 <!doctype html>
 <html lang="en-US">
@@ -21,7 +24,7 @@ $customersList = selectCustomersElementDelete($customers, $contactInfo['0']['cus
         <div class="row h-100">
         <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-navl.php'; ?>
             <div class="col h-100 py-4 px-3">
-                <h3 class="h3 text-center"><?php if(isset($contactInfo['0']['contact_name'])){ echo "Confirm Contact ".$contactInfo['0']['contact_name']." Deletion";}?></h3>
+                
                 <div class="col-10 mt-5 mx-auto alert alert-danger" role="alert">
                     This change is permanent.
                     <a class="alert-link mx-2" href="<?php if(isset($contactInfo['0']['contact_id'])){ echo "../sf-contacts/?action=modify&contactNo=".$contactInfo['0']['contact_id'];}?>">Modify instead</a><a class="alert-link mx-2" href="../sf-contacts">Cancel</a>

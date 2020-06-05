@@ -3,6 +3,9 @@ if (!isset($_SESSION['member_name'])) {
     header("Location: /salesfu");
     die();
 }
+if(isset($customerInfo['0']['customer_name'])){ 
+    $pageName = "Update Customer ".$customerInfo['0']['customer_name'];
+}
 ?>
 <!doctype html>
 <html lang="en-US">
@@ -19,7 +22,6 @@ if (!isset($_SESSION['member_name'])) {
         <div class="row h-100">
         <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-navl.php'; ?>
             <div class="col h-100 py-4 px-3">
-                <h3 class="h3 text-center"><?php if(isset($customerInfo['0']['customer_name'])){ echo "Update Customer ".$customerInfo['0']['customer_name'];}?></h3>
                 <div class="col-10 mt-5 mx-auto alert alert-info" role="alert">
                     Official Name and Tax ID are required. Phone and Email are Optional.
                     <a class="alert-link mx-3" href="../sf-customers">Back to Customers</a>

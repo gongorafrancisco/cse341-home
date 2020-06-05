@@ -168,6 +168,7 @@ switch ($action) {
             header("Location: /salesfu");
     	    die();
         }
+        $_SESSION['pageName'] = "Customers";
         $optionSelected = "";
         $customers = getCustomers();
         if (count($customers) > 0) {

@@ -3,6 +3,9 @@ if (!isset($_SESSION['member_name'])) {
     header("Location: /salesfu");
     die();
 }
+if(isset($customerInfo['0']['customer_name'])){ 
+    $pageName = "Confirm Customer ".$customerInfo['0']['customer_name']." Deletion";
+}
 ?>
 <!doctype html>
 <html lang="en-US">
@@ -19,7 +22,7 @@ if (!isset($_SESSION['member_name'])) {
         <div class="row h-100">
         <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-navl.php'; ?>
             <div class="col h-100 py-4 px-3">
-                <h3 class="h3 text-center"><?php if(isset($customerInfo['0']['customer_name'])){ echo "Confirm Customer ".$customerInfo['0']['customer_name']." Deletion";}?></h3>
+                
                 <div class="col-10 mt-5 mx-auto alert alert-danger" role="alert">
                     All contacts and addresses will be removed by deleting a customer. This change is permanent.
                     <a class="alert-link mx-2" href="<?php if(isset($customerInfo['0']['customer_id'])){ echo "../sf-customers/?action=modify&customerNo=".$customerInfo['0']['customer_id'];}?>">Modify instead</a><a class="alert-link mx-2" href="../sf-customers">Cancel</a>

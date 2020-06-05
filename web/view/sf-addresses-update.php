@@ -6,6 +6,9 @@ if (!isset($_SESSION['member_name'])) {
 $customers = getCustomers();
 $customersList = selectCustomersElementModify($customers, $addressInfo['0']['customer_id']);
 $shippingBoolean = shippingAddressModify($booleanOptions, $addressInfo['0']['shipping_address']);
+if(isset($addressInfo['0']['customer_name'])){ 
+    $pageName = "Update address for customer ".$addressInfo['0']['customer_name'];
+}
 ?>
 <!doctype html>
 <html lang="en-US">
@@ -22,7 +25,7 @@ $shippingBoolean = shippingAddressModify($booleanOptions, $addressInfo['0']['shi
         <div class="row h-100">
         <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-navl.php'; ?>
             <div class="col h-100 py-4 px-3">
-                <h3 class="h3 text-center"><?php if(isset($addressInfo['0']['customer_name'])){ echo "Update address for customer ".$addressInfo['0']['customer_name'];}?></h3>
+                
                 <div class="col-10 mt-5 mx-auto alert alert-info" role="alert">
                     All fields are required.
                     <a class="alert-link mx-3" href="../sf-addresses">Back to Addresses</a>

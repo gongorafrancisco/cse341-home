@@ -22,6 +22,7 @@ if ($action == NULL) {
 switch ($action) {
     case 'logout' :
         unset($_SESSION['member_name']);
+        unset($_SESSION['pageName']);
         header('Location: /salesfu');
         die();
         break;

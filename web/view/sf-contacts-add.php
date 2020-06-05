@@ -5,6 +5,7 @@ if (!isset($_SESSION['member_name'])) {
 }
 $customers = getCustomers();
 $customersList = selectCustomersElement($customers);
+$pageName = "Add a Contact";
 ?>
 <!doctype html>
 <html lang="en-US">
@@ -21,7 +22,6 @@ $customersList = selectCustomersElement($customers);
         <div class="row h-100">
         <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-navl.php'; ?>
             <div class="col h-100 py-4 px-3">
-                <h3 class="h3 text-center">Add Customer Contact</h3>
                 <div class="col-10 mt-5 mx-auto alert alert-info" role="alert">
                     All fields are required.
                     <a class="alert-link mx-3" href="../sf-contacts">Back to Contacts</a>

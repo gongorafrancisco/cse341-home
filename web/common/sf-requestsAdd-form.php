@@ -1,12 +1,10 @@
 <form class="col-10 my-5 mx-auto" action="../sf-requests/?" method="post">
-<div class="form-group row">
-    <label for="customerNo" class="col-sm-2 col-form-label">Company</label>
-    <div class="col-sm-10">
-        <?php if (isset($customersList)) {
-            echo $customersList;
-        } ?>
-        <small id="companyHelp" class="form-text text-muted">e.g. Amazon</small>
-    </div>
+    <div class="form-group row">
+        <label for="customerNo" class="col-sm-2 col-form-label">Company</label>
+        <div class="col-sm-10">
+            <?php if (isset($customersList)) { echo $customersList; } ?>
+            <small id="companyHelp" class="form-text text-muted">e.g. Amazon</small>
+        </div>
     </div>
     <div class="form-group row">
         <label for="contactNo" class="col-sm-2 col-form-label">Company contact</label>
@@ -21,6 +19,13 @@
         <div class="col-sm-10">
             <textarea class="form-control" id="requestDetails" name="details" aria-describedby="detailsHelp" rows="10" required></textarea>
             <small id="detailsHelp" class="form-text text-muted">Describe the product/service to quote.</small>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="customerNo" class="col-sm-2 col-form-label">Company</label>
+        <div class="col-sm-10">
+            <?php if (isset($customersList)) { echo $customersList; } ?>
+            <small id="companyHelp" class="form-text text-muted">e.g. Amazon</small>
         </div>
     </div>
     <div class="form-group row">
