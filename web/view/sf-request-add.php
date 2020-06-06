@@ -1,5 +1,5 @@
 <?php
-if (!isset($_SESSION['member_name'])) { 
+if (!isset($_SESSION['member_name'])) {
     header("Location: /salesfu");
     die();
 }
@@ -17,17 +17,50 @@ $customersList = selectCustomersElement($customers);
 </head>
 
 <body>
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-navt.php'; ?>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-navt.php'; ?>
     <div class="container-fluid h-100">
         <div class="row h-100">
-        <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-navl.php'; ?>
+            <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-navl.php'; ?>
             <div class="col h-100 py-4 px-3">
                 <div class="col-10 mt-5 mx-auto alert alert-info" role="alert">
                     All fields are required.
                     <a class="alert-link mx-3" href="../sf-requests">Back to Requests</a>
                 </div>
-                    <?php if (isset($message)){echo "<div class='col-10 mt-2 mx-auto alert alert-info' role='alert'>".$message."</div>";}?>
-                    <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/sf-requestsAdd-form.php'; ?>
+                <?php if (isset($message)) {
+                    echo "<div class='col-10 mt-2 mx-auto alert alert-info' role='alert'>" . $message . "</div>";
+                } ?>
+                <form class="col-10 my-5 mx-auto" action="../sf-requests/?" method="post">
+                    <div class="form-group row">
+                        <label for="customerNo" class="col-sm-2 col-form-label">Company</label>
+                        <div class="col-sm-10">
+                            <?php if (isset($customersList)) {
+                                echo $customersList;
+                            } ?>
+                            <small id="contactNoHelp" class="form-text text-muted">Select a Company from the list, if there is no contacts please create one <a class="alert-link" href="../sf-customers/?action=create">here</a></small>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="contactNo" class="col-sm-2 col-form-label">Company contact</label>
+                        <div class="col-sm-10">
+                            <select name="contactNo" id="contactNo" class="form-control" required>
+                                <option value="">Select a Contact</option>
+                            </select>
+                            <small id="contactNoHelp" class="form-text text-muted">Select a contact from the list, if there is no contacts please create one <a class="alert-link" href="../sf-contacts/?action=create">here</a></small>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="details" class="col-sm-2 col-form-label">Request Description</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" id="requestDetails" name="details" aria-describedby="detailsHelp" rows="10" required></textarea>
+                            <small id="detailsHelp" class="form-text text-muted">Describe the product/service to quote.</small>
+                        </div>
+                    </div>
+                    <div class="col-8 my-2 mx-auto p-0">
+                        <button type="submit" class="w-100 btn btn-primary">Submit</button>
+                        <input type="hidden" name="action" value="insertRequest">
+                    </div>
+
+                </form>
             </div>
         </div>
     </div>

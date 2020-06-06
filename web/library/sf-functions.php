@@ -218,9 +218,8 @@ function requestsBuilder($requests){
                                         <th>Company</th>
                                         <th>Contact</th>
                                         <th>Details</th>
-                                        <th>Due Date</th>
                                         <th>Completed</th>
-                                        <th> Actions</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>";
@@ -230,10 +229,9 @@ function requestsBuilder($requests){
                                         <td>" . parse_timestamp($request['request_date']) . "</td>
                                         <td>" . $request['customer_name'] . "</td>
                                         <td>" . $request['contact_name'] . "</td>
-                                        <td><a href='../sf-customers/?action=details&customerNo=".$request['request_id']."' class='link text-info'>Details</a></td>
-                                        <td>" . $request['request_delivery_date'] . "</td>
+                                        <td><a href='../sf-requests/?action=details&requestNo=".$request['request_id']."' class='link text-info'>Details</a></td>
                                         <td>" . $request['request_complete'] . "</td>
-                                        <td><a href='../sf-customers/?action=modify&customerNo=".$request['request_id']."' class='btn btn-primary'>Modify</a><a href='../sf-customers/?action=delete&customerNo=".$request['request_id']."' class='ml-3 btn btn-danger'>Delete</a></td>
+                                        <td><a href='../sf-quotes/?action=create&requestNo=".$request['request_id']."' class='btn btn-success'>Complete</a></td>
                                     </tr>";
             }
             $table .= "</tbody></table>";

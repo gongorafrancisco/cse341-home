@@ -1,81 +1,23 @@
-            <div class="bg-light col-2 h-100 py-4 px-3">
-                <div class="my-4 w-75 btn-group dropright">
-                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="bg-light col-2 h-100 py-3 px-3">
+                <ul class="nav flex-column">
+                    <li class="nav-item my-4">
                         Customers
-                    </button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="../sf-customers">View All</a>
-                        <a class="dropdown-item" href="../sf-customers/?action=create">Add Customer</a>
-                        <a class="dropdown-item" href="../sf-contacts">View Contacts</a>
-                        <a class="dropdown-item" href="../sf-contacts/?action=create">Add Contact</a>
-                        <a class="dropdown-item" href="../sf-addresses">View Addresses</a>
-                        <a class="dropdown-item" href="../sf-addresses/?action=create">Add Addresses</a>
-                    </div>
-                </div>
-            
-                <div class="my-4 w-75 btn-group dropright">
-                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <ul class="nav flex-column ml-4">
+                            <li class="nav-item my-1"><a class="nav-link" href="../sf-customers">View All</a></li>
+                            <li class="nav-item my-1"><a class="nav-link" href="../sf-customers/?action=create">Add Customer</a></li>
+                            <li class="nav-item my-1"><a class="nav-link" href="../sf-contacts">View Contacts</a></li>
+                            <li class="nav-item my-1"><a class="nav-link" href="../sf-contacts/?action=create">Add Contact</a></li>
+                            <li class="nav-item my-1"><a class="nav-link" href="../sf-addresses">View Addresses</a></li>
+                            <li class="nav-item my-1"><a class="nav-link" href="../sf-addresses/?action=create">Add Addresses</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item my-4">
+
                         Requests
-                    </button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="../sf-requests">View All</a>
-                        <a class="dropdown-item" href="../sf-requests/?action=create">Add Request</a>
-                    </div>
-                </div>
 
-                <div class="my-4 w-75 btn-group dropright">
-                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Quotes
-                    </button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="../sf-customers">View All</a>
-                        <a class="dropdown-item" href="../sf-customers/?action=create">Add Customer</a>
-                        <a class="dropdown-item" href="../sf-contacts">View Contacts</a>
-                        <a class="dropdown-item" href="../sf-contacts/?action=create">Add Contact</a>
-                        <a class="dropdown-item" href="#">View Addresses</a>
-                        <a class="dropdown-item" href="#">Add Addresses</a>
-                    </div>
-                </div>
-
-                <div class="my-4 w-75 btn-group dropright">
-                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Invoices
-                    </button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="../sf-customers">View All</a>
-                        <a class="dropdown-item" href="../sf-customers/?action=create">Add Customer</a>
-                        <a class="dropdown-item" href="../sf-contacts">View Contacts</a>
-                        <a class="dropdown-item" href="../sf-contacts/?action=create">Add Contact</a>
-                        <a class="dropdown-item" href="#">View Addresses</a>
-                        <a class="dropdown-item" href="#">Add Addresses</a>
-                    </div>
-                </div>
-
-                <div class="my-4 w-75 btn-group dropright">
-                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Sales Orders
-                    </button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="../sf-customers">View All</a>
-                        <a class="dropdown-item" href="../sf-customers/?action=create">Add Customer</a>
-                        <a class="dropdown-item" href="../sf-contacts">View Contacts</a>
-                        <a class="dropdown-item" href="../sf-contacts/?action=create">Add Contact</a>
-                        <a class="dropdown-item" href="#">View Addresses</a>
-                        <a class="dropdown-item" href="#">Add Addresses</a>
-                    </div>
-                </div>
-
-                <div class="my-4 w-75 btn-group dropright">
-                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Payments
-                    </button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="../sf-customers">View All</a>
-                        <a class="dropdown-item" href="../sf-customers/?action=create">Add Customer</a>
-                        <a class="dropdown-item" href="../sf-contacts">View Contacts</a>
-                        <a class="dropdown-item" href="../sf-contacts/?action=create">Add Contact</a>
-                        <a class="dropdown-item" href="#">View Addresses</a>
-                        <a class="dropdown-item" href="#">Add Addresses</a>
-                    </div>
-                </div>
+                        <ul class="nav flex-column ml-4">
+                            <li class="nav-item my-1"><a class="nav-link" href="../sf-requests">View All</a></li>
+                            <li class="nav-item my-1"><a class="nav-link" href="../sf-requests/?action=create">Add Request</a></li>
+                        </ul>
+                    </li>
             </div>

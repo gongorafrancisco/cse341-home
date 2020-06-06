@@ -10,7 +10,7 @@ CREATE TABLE team_users (
     UNIQUE (member_email)
 );
 
-CREATE TABLE payment_status (
+/* CREATE TABLE payment_status (
     status_id   INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     payment_status VARCHAR(40) NOT NULL,
     UNIQUE (payment_status)
@@ -32,7 +32,7 @@ CREATE TABLE shipping_companies(
     shipping_company_id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     shipping_company_name   VARCHAR(50) NOT NULL,
     UNIQUE (shipping_company_name)
-);
+); */
 
 CREATE TABLE customers (
     customer_id  INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -52,36 +52,35 @@ CREATE TABLE customer_contacts (
     contact_email   TEXT DEFAULT NULL
 );
 
-CREATE TABLE customer_addresses (
+/* CREATE TABLE customer_addresses (
     address_id  INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     customer_id INT NOT NULL REFERENCES customers(customer_id) ON DELETE CASCADE,
     customer_address    TEXT NOT NULL,
     shipping_address    BOOLEAN NOT NULL
-);
+); */
 
-CREATE TABLE quote_requests (
+CREATE TABLE requests (
     request_id  INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     request_date    TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     customer_id INT REFERENCES customers(customer_id) ON DELETE CASCADE,
     contact_id INT REFERENCES customer_contacts(contact_id),
     request_details TEXT NOT NULL,
-    address_id INT REFERENCES customer_addresses(address_id),
-    request_complete    BOOLEAN NOT NULL DEFAULT FALSE,
-    request_delivery_date   DATE NOT NULL
+    request_complete    BOOLEAN NOT NULL DEFAULT FALSE
 );
 
 CREATE TABLE quotes (
     quote_id    INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     quote_date  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    customer_id INT REFERENCES customers(customer_id),
+    request_id INT REFERENCES requests(request_id),
+    customer_id INT REFERENCES customers(customer_id) ON DELETE CASCADE,
     contact_id INT REFERENCES customer_contacts(contact_id),
+    quote_details TEXT NOT NULL,
     quote_subtotal    NUMERIC NOT NULL CHECK(quote_subtotal > 0),
     quote_taxes   NUMERIC NOT NULL CHECK(quote_taxes >= 0),
-    quote_total NUMERIC NOT NULL,
-    quores_complete BOOLEAN NOT NULL DEFAULT FALSE
+    quote_total NUMERIC NOT NULL
 );
 
-CREATE TABLE invoices (
+/* CREATE TABLE invoices (
     invoice_id   INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     invoice_date    TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     quote_id    INT REFERENCES quotes(quote_id),
@@ -125,4 +124,4 @@ CREATE TABLE financial_operations (
     payment_complete BOOLEAN NOT NULL DEFAULT FALSE,
     payment_amount NUMERIC DEFAULT NULL
 );
-
+ */
