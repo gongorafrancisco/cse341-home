@@ -22,7 +22,7 @@ if ($action == NULL) {
     $action = filter_input(INPUT_GET, 'action');
 }
 
-$searchOptions = array("No.", "Quote Date", "Company", "Contact", "Details", "Completed", "Delivery Date");
+$searchOptions = array("No.", "Quote Date", "Company", "Contact", "Total");
 
 switch ($action) {
 
@@ -46,8 +46,8 @@ switch ($action) {
         
         if ($insertOutcome > 0) {
             $requestComplete = "t";
-            updateRequest($requestComplete, $request_id);
-            $message = "The request ".$request_id." was successfully completed by the <strong>quote number: ".$insertOutcome."</strong>";
+            completeRequest($requestComplete, $request_id);
+            $message = "The request #".$request_id." was successfully completed by the <strong>quote #".$insertOutcome."</strong>";
             $_SESSION['message'] = $message;
             header("Location:/sf-requests");
             die();
@@ -76,92 +76,7 @@ switch ($action) {
             die();
         }
         break;
-    
-/*     case 'updateCustomer':
-        $customer_name = filter_input(INPUT_POST, 'officialName', FILTER_SANITIZE_STRING);
-        $customer_taxid = filter_input(INPUT_POST, 'taxID', FILTER_SANITIZE_STRING);
-        $customer_phone = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_STRING);
-        $customer_email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
-        $customer_id = filter_input(INPUT_POST, 'customerNo', FILTER_VALIDATE_INT);
-        if (empty($customer_name) || empty($customer_taxid)) {
-            $message = "Please provide information for all empty form fields.";
-            include '../view/sf-customer-update.php';
-            exit;
-        }
-        $updateOutcome = updateCustomer($customer_id, $customer_name, $customer_taxid, $customer_phone, $customer_email);
-        if ($updateOutcome === 1) {
-            $message = "Customer <strong>".$customer_name. "</strong> was successfully updated.";
-            $_SESSION['message'] = $message;
-            header("Location:/sf-customers");
-            exit;
-           } else {
-            $message = "Error <strong>".$customer_name. "</strong> was not updated.";
-            include '../view/sf-customer-update.php';
-            exit;
-           }
-        break; */
 
-   /*  case 'complete':
-        $quote_id = filter_input(INPUT_GET, 'quoteNo', FILTER_VALIDATE_INT);
-        include "../quotes/?action=createFR&quoteNo=$quote_id";
-        break; */
-
-/*     case 'details':
-        $customer_id = filter_input(INPUT_GET, 'customerNo', FILTER_VALIDATE_INT);
-        $customerInfo = getCustomerDetails($customer_id);
-        if (count($customerInfo) > 0) {
-            $customerDetails = generalInfoBuilder($customerInfo);
-        } else {
-            $message = "Sorry, your search did not match any customer.";
-        }
-        include '../view/sf-customer-details.php';
-        break; */
-
-    /* case 'search':
-        $optionSelected = filter_input(INPUT_GET, 'filter_option', FILTER_VALIDATE_INT);
-        $userInput = filter_input(INPUT_GET, 'filter_value', FILTER_SANITIZE_STRING);
-        $filterName = "";
-        $filterValue = "";
-        $customers = "";
-        switch ($optionSelected){
-            case 0 : 
-                $filterValue = filter_input(INPUT_GET, 'filter_value', FILTER_VALIDATE_INT);
-                $customers = getCustomerById($filterValue);
-            break;
-
-            case 1 :
-                $filterName = "customer_name";
-                $filterValue = "%" . $userInput . "%";
-                $customers = getCustomersByFilter($filterName, $filterValue);
-            break;
-
-            case 2 :
-                $filterName = "customer_taxid";
-                $filterValue = "%" . $userInput . "%";
-                $customers = getCustomersByFilter($filterName, $filterValue);
-            break;
-
-            case 3 :
-                $filterName = "customer_phone";
-                $filterValue = "%" . $userInput . "%";
-                $customers = getCustomersByFilter($filterName, $filterValue);
-            break;
-
-            case 4 :
-                $filterName = "customer_email";
-                $filterValue = "%" . $userInput . "%";
-                $customers = getCustomersByFilter($filterName, $filterValue);
-            break;
-        }
-        
-        if (count($customers) > 0) {
-            $customersFiltered = customersBuilder($customers);
-        } else {
-            $message = 'Sorry, your search did not match any customer.';
-        }
-        include '../view/sf-customers-filtered.php';
-        break; */
-/* 
     default:
         if (!isset($_SESSION['member_name'])) { 
             header("Location: /salesfu");
@@ -175,5 +90,5 @@ switch ($action) {
             $message = 'Sorry, no quotes were found';
         }
         include '../view/sf-quotes.php';
-        break; */
+        break;
 }

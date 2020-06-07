@@ -62,8 +62,8 @@ CREATE TABLE customer_contacts (
 CREATE TABLE requests (
     request_id  INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     request_date    TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    customer_id INT REFERENCES customers(customer_id) ON DELETE CASCADE,
-    contact_id INT REFERENCES customer_contacts(contact_id),
+    customer_id INT NOT NULL REFERENCES customers(customer_id) ON DELETE CASCADE,
+    contact_id INT NOT NULL REFERENCES customer_contacts(contact_id),
     request_details TEXT NOT NULL,
     request_complete    BOOLEAN NOT NULL DEFAULT FALSE
 );
@@ -71,7 +71,7 @@ CREATE TABLE requests (
 CREATE TABLE quotes (
     quote_id    INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     quote_date  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    request_id INT REFERENCES requests(request_id),
+    request_id INT REFERENCES requests(request_id) ON DELETE CASCADE,
     customer_id INT REFERENCES customers(customer_id) ON DELETE CASCADE,
     contact_id INT REFERENCES customer_contacts(contact_id),
     quote_details TEXT NOT NULL,

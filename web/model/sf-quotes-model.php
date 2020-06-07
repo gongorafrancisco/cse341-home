@@ -1,54 +1,17 @@
 <?php
-/*  function getQuotes(){
+  function getQuotes(){
   $db = herokuConnect();
-  $sql = "SELECT qr.quote_id, qr.quote_date, c.customer_name, cc.contact_name,
-  CASE WHEN qr.quote_complete = TRUE THEN 'Yes' WHEN qr.quote_complete = FALSE THEN 'No' END as quote_complete
-  FROM quotes AS qr
-  INNER JOIN customers AS c ON c.customer_id = qr.customer_id
-  INNER JOIN customer_contacts AS cc ON cc.contact_id = qr.contact_id";
+  $sql = "SELECT q.quote_id, q.quote_date, qr.request_id, c.customer_id, c.customer_name, cc.contact_id, cc.contact_name, q.quote_total FROM quotes AS q
+  LEFT JOIN requests AS qr ON qr.request_id = q.request_id
+  LEFT JOIN customers AS c ON c.customer_id = q.customer_id
+  LEFT JOIN customer_contacts AS cc ON cc.contact_id = q.contact_id
+  ORDER BY q.quote_id";
   $stmt = $db->prepare($sql);
-  $stmt->execute();
-  $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-  $stmt->closeCursor();
-  return $rows;
-} */
-
-/*function getCustomersByFilter($filterName, $filterValue){
-  $db = herokuConnect();
-  $sql = "SELECT * FROM customers WHERE $filterName LIKE :filterValue ORDER BY customer_name";
-  $stmt = $db->prepare($sql);
-  $stmt->bindValue(':filterValue', $filterValue, PDO::PARAM_STR);
   $stmt->execute();
   $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
   $stmt->closeCursor();
   return $rows;
 }
-
-function getCustomerDetails($customer_id){
-  $db = herokuConnect();
-  $sql = "SELECT customer_id, customer_name, customer_taxid, customer_phone, customer_email FROM customers WHERE customer_id = :customer_id";
-  $stmt = $db->prepare($sql);
-  $stmt->bindValue(':customer_id', $customer_id, PDO::PARAM_INT);
-  $stmt->execute();
-  $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-  $stmt->closeCursor();
-  return $rows;
-}*/
-
-/* function getQuoteById($quote_id){
-  $db = herokuConnect();
-  $sql = "SELECT qr.quote_id, c.customer_id, c.customer_name, cc.contact_id, cc.contact_name 
-  FROM quotes AS qr
-  INNER JOIN customers AS c ON c.customer_id = qr.customer_id
-  INNER JOIN customer_contacts AS cc ON cc.contact_id = qr.contact_id
-  WHERE qr.quote_id = :quote_id";
-  $stmt = $db->prepare($sql);
-  $stmt->bindValue(':quote_id', $quote_id, PDO::PARAM_INT);
-  $stmt->execute();
-  $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-  $stmt->closeCursor();
-  return $rows;
-} */
 
 function insertQuote($request_id, $customer_id, $contact_id, $quote_datails, $quote_subtotal, $quote_taxes, $quote_total){
   $db = herokuConnect();

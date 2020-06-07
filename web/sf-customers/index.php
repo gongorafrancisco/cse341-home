@@ -29,7 +29,7 @@ switch ($action) {
             $message = "Customer <strong>".$customer_name. "</strong> was successfully deleted.";
             $_SESSION['message'] = $message;
             header("Location:/sf-customers");
-            exit;
+            die();
            } else {
             $message = "Error <strong>".$customer_name. "</strong> was not deleted.";
             include '../view/sf-customer-delete.php';

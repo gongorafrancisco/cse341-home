@@ -7,8 +7,6 @@
                             <li class="nav-item my-1"><a class="nav-link" href="../sf-customers/?action=create">Add Customer</a></li>
                             <li class="nav-item my-1"><a class="nav-link" href="../sf-contacts">View Contacts</a></li>
                             <li class="nav-item my-1"><a class="nav-link" href="../sf-contacts/?action=create">Add Contact</a></li>
-                            <li class="nav-item my-1"><a class="nav-link" href="../sf-addresses">View Addresses</a></li>
-                            <li class="nav-item my-1"><a class="nav-link" href="../sf-addresses/?action=create">Add Addresses</a></li>
                         </ul>
                     </li>
                     <li class="nav-item my-4">
@@ -18,6 +16,14 @@
                         <ul class="nav flex-column ml-4">
                             <li class="nav-item my-1"><a class="nav-link" href="../sf-requests">View All</a></li>
                             <li class="nav-item my-1"><a class="nav-link" href="../sf-requests/?action=create">Add Request</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item my-4">
+
+                        Quotes
+
+                        <ul class="nav flex-column ml-4">
+                            <li class="nav-item my-1"><a class="nav-link" href="../sf-quotes">View All</a></li>
                         </ul>
                     </li>
             </div>

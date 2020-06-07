@@ -230,10 +230,43 @@ function requestsBuilder($requests){
                                         <td>" . $request['customer_name'] . "</td>
                                         <td>" . $request['contact_name'] . "</td>
                                         <td><a href='../sf-requests/?action=details&requestNo=".$request['request_id']."' class='link text-info'>Details</a></td>
-                                        <td>" . $request['request_complete'] . "</td>
-                                        <td><a href='../sf-quotes/?action=create&requestNo=".$request['request_id']."' class='btn btn-success'>Complete</a></td>
-                                    </tr>";
+                                        <td>" . $request['request_complete'] . "</td>";
+                                    if ($request['request_complete'] == "Yes"){
+                                        $table .= "<td><a href='../sf-requests/?action=delete&requestNo=".$request['request_id']."' class='btn btn-danger'>Delete</a></td>";
+                                    } else {
+                                        $table .= "<td><a href='../sf-requests/?action=modify&requestNo=".$request['request_id']."' class='btn btn-primary mr-1'>Modify</a><a href='../sf-quotes/?action=create&requestNo=".$request['request_id']."' class='btn btn-success ml-1'>Complete</a></td>";
+                                    }
+                                    $table .= "</tr>";
             }
+            $table .= "</tbody></table>";
+            return $table;
+}
+
+function quotesBuilder($quotes) {
+    $table = "<table class='table text-center'>
+                                <thead class='thead-light'>
+                                    <tr>
+                                        <th scope='col'>No.</th>
+                                        <th>Date</th>
+                                        <th>Company</th>
+                                        <th>Contact</th>
+                                        <th>Request No</th>
+                                        <th>Total</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>";
+            foreach ($quotes as $quote) {
+                $table .= "<tr>
+                                        <th scope='row'>" . $quote['quote_id'] . "</th>
+                                        <td>" . parse_timestamp($quote['quote_date']) . "</td>
+                                        <td>" . $quote['customer_name'] . "</td>
+                                        <td>" . $quote['contact_name'] . "</td>
+                                        <td>" . $quote['request_id'] . "</td>
+                                        <td>$" . $quote['quote_total'] . "</td>
+                                        <td><a href='../sf-quotes/?action=modify&quoteNo=".$quote['quote_id']."' class='btn btn-primary mr-1'>Modify</a><a href='../sf-quotes/?action=delete&rquoteNo=".$quote['request_id']."' class='btn btn-danger ml-1'>Delete</a></td>";
+                                    }
+                                    $table .= "</tr>";
             $table .= "</tbody></table>";
             return $table;
 }
