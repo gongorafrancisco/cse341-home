@@ -65,8 +65,8 @@ $pageName = "Add a Quote";
                         <label for="requestDetails" class="col-sm-2 col-form-label">Request Description</label>
                         <div class="col-sm-10">
                         <?php 
-                            if(isset($requestDetails)){ 
-                                    echo "<textarea class='form-control' id='requestDetails' name='requestDetails' readonly>".$requestDetails."</textarea>"; 
+                            if(isset($requesDetails)){ 
+                                    echo "<textarea class='form-control' id='requestDetails' name='requestDetails' readonly>".$requesDetails."</textarea>"; 
                                 } 
                         ?>
                             <small id="requestDetailsHelp" class="form-text text-muted">Products/services requested.</small>
