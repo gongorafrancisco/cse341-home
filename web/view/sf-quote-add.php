@@ -62,6 +62,17 @@ $pageName = "Add a Quote";
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label for="requestDetails" class="col-sm-2 col-form-label">Request Description</label>
+                        <div class="col-sm-10">
+                        <?php 
+                            if(isset($requestDetails)){ 
+                                    echo "<textarea class='form-control' id='requestDetails' name='requestDetails' readonly>".$requestDetails."</textarea>"; 
+                                } 
+                        ?>
+                            <small id="requestDetailsHelp" class="form-text text-muted">Products/services requested.</small>
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label for="details" class="col-sm-2 col-form-label">Quote Description</label>
                         <div class="col-sm-10">
                             <textarea class="form-control" id="quoteDetails" name="details" aria-describedby="detailsHelp" rows="10" required autofocus></textarea>

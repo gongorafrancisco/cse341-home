@@ -68,6 +68,7 @@ switch ($action) {
             $customerName = $requestInfo['0']['customer_name'];
             $contactNo = $requestInfo['0']['contact_id'];
             $contactName = $requestInfo['0']['contact_name'];
+            $requesDetails = $requestInfo['0']['request_details'];
             include '../view/sf-quote-add.php';
         } else {
             $message = "Invalid quote request number, check the info and try again.";
